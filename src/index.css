@@ -82,6 +82,43 @@
   }
 }
 
+/* Lavender sway animations */
+@keyframes swayWind {
+  0%, 100% { transform: rotate(-3deg); }
+  50%       { transform: rotate(3deg);  }
+}
+@keyframes swayWindAlt {
+  0%, 100% { transform: rotate(2deg);  }
+  50%       { transform: rotate(-4deg); }
+}
+@keyframes pulseRing {
+  0%   { transform: scale(0.8); opacity: 0.7; }
+  100% { transform: scale(2);   opacity: 0;   }
+}
+
+.lavender-sway      { animation: swayWind    4s ease-in-out        infinite; transform-origin: bottom center; }
+.lavender-sway-alt  { animation: swayWindAlt 5s ease-in-out 1s     infinite; transform-origin: bottom center; }
+.lavender-sway-slow { animation: swayWind    7s ease-in-out 0.5s   infinite; transform-origin: bottom center; }
+.pulse-ring         { animation: pulseRing   1.5s ease-out          infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .lavender-sway,
+  .lavender-sway-alt,
+  .lavender-sway-slow,
+  .pulse-ring,
+  .animate-float,
+  .animate-float-delay,
+  .animate-float-slow,
+  .animate-pulse-soft {
+    animation: none !important;
+  }
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

@@ -50,15 +50,21 @@ export default function Zone() {
                 key={i}
                 className={`reveal reveal-delay-${(i % 4) + 1} group bg-cream rounded-2xl px-4 py-3.5
                   hover:bg-brand-orange/8 hover:border-brand-orange/20 border border-transparent
-                  transition-all duration-250 hover:-translate-y-0.5`}
+                  transition-all duration-300 hover:-translate-y-0.5`}
               >
                 <div className="flex items-center gap-2 mb-0.5">
-                  <div className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0 group-hover:scale-125 transition-transform" />
-                  <span className="font-heading font-bold text-noir text-sm group-hover:text-brand-orange transition-colors duration-250">
+                  <div className="relative flex-shrink-0 w-4 h-4 flex items-center justify-center">
+                    <span className="w-2 h-2 rounded-full bg-brand-orange block" />
+                    <span className="absolute inset-0 rounded-full bg-brand-orange/30 hidden group-hover:block pulse-ring" />
+                  </div>
+                  <span className="font-heading font-bold text-noir text-sm group-hover:text-brand-orange transition-colors duration-300 flex-1">
                     {city.name}
                   </span>
+                  <span className="text-[10px] font-heading font-bold text-brand-orange opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    ✓ Couvert
+                  </span>
                 </div>
-                <p className="text-noir/38 font-body text-xs pl-3.5">{city.note}</p>
+                <p className="text-noir/38 font-body text-xs pl-6">{city.note}</p>
               </div>
             ))}
           </div>

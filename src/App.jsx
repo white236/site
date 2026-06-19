@@ -3,6 +3,7 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Offer from './components/Offer'
+import EspritVentoux from './components/EspritVentoux'
 import HowItWorks from './components/HowItWorks'
 import Differentiators from './components/Differentiators'
 import Zone from './components/Zone'
@@ -33,6 +34,7 @@ export default function App() {
         <Hero />
         <Problem />
         <Offer />
+        <EspritVentoux />
         <HowItWorks />
         <Differentiators />
         <Zone />

@@ -1,4 +1,6 @@
+import { useEffect, useRef } from 'react'
 import Logo from './Logo'
+import LavenderSprig from './LavenderSprig'
 
 const badges = [
   { icon: '💰', text: '20 % seulement quand le logement est loué' },
@@ -8,14 +10,36 @@ const badges = [
 ]
 
 export default function Hero() {
+  const mountainRef = useRef(null)
+
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isMobile = window.innerWidth < 768
+    if (prefersReduced || isMobile) return
+
+    const handleScroll = () => {
+      if (mountainRef.current) {
+        mountainRef.current.style.transform = `translateY(${window.scrollY * 0.18}px)`
+      }
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-cream pt-20">
-      {/* Background blobs – lavande */}
+      {/* Background blobs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-orange opacity-[0.08] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-olive opacity-[0.08] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-brand-jaune opacity-[0.12] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-      {/* Petits points décoratifs animés */}
+      {/* Lavender sprigs – desktop only */}
+      <LavenderSprig className="w-7 h-16 absolute top-32 right-10 hidden xl:block opacity-40" variant="slow" />
+      <LavenderSprig className="w-6 h-14 absolute top-52 right-28 hidden xl:block opacity-28" variant="alt" />
+      <LavenderSprig className="w-5 h-12 absolute bottom-36 right-14 hidden xl:block opacity-25" variant="sway" />
+
+      {/* Floating dots */}
       <div className="absolute top-28 right-20 w-3 h-3 rounded-full bg-brand-orange opacity-50 animate-float hidden lg:block" />
       <div className="absolute top-44 right-40 w-2 h-2 rounded-full bg-brand-orange opacity-30 animate-float-delay hidden lg:block" />
       <div className="absolute top-64 right-16 w-1.5 h-1.5 rounded-full bg-brand-olive opacity-40 animate-float-slow hidden lg:block" />
@@ -50,10 +74,7 @@ export default function Hero() {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3.5">
-              <a
-                href="tel:0620711975"
-                className="btn-orange shadow-orange text-base"
-              >
+              <a href="tel:0620711975" className="btn-orange shadow-orange text-base">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
@@ -99,9 +120,34 @@ export default function Hero() {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 pointer-events-none">
-        <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
-          <path d="M0 80L60 66.7C120 53.3 240 26.7 360 20C480 13.3 600 26.7 720 33.3C840 40 960 40 1080 36.7C1200 33.3 1320 26.7 1380 23.3L1440 20V80H1380C1320 80 1200 80 1080 80C960 80 840 80 720 80C600 80 480 80 360 80C240 80 120 80 60 80H0Z" fill="#F0E8D8" fillOpacity="0.5"/>
+      {/* Ventoux mountain silhouette – parallax target */}
+      <div className="absolute bottom-0 left-0 right-0 pointer-events-none will-change-transform" ref={mountainRef}>
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full h-[80px] sm:h-[120px]"
+        >
+          {/* Mountain fill */}
+          <path
+            d="M0 120 V94 L60 90 L140 86 L250 80 L380 74 L480 66 L560 56 L640 43 L700 29 L725 11 L750 29 L800 43 L860 56 L940 64 L1040 58 L1140 66 L1240 76 L1340 84 L1440 90 V120 Z"
+            fill="#EDE5D4"
+          />
+          {/* Ridge line */}
+          <path
+            d="M480 66 L560 56 L640 43 L700 29 L725 11 L750 29 L800 43 L860 56 L940 64"
+            stroke="#8FA06B"
+            strokeWidth="1"
+            strokeOpacity="0.35"
+            fill="none"
+          />
+          {/* Snow cap */}
+          <path
+            d="M711 26 L725 11 L739 26 L732 31 L725 19 L718 31 Z"
+            fill="white"
+            fillOpacity="0.88"
+          />
         </svg>
       </div>
     </section>
