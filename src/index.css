@@ -112,6 +112,32 @@
   100% { transform: translateY(-310px) translateX(-40px) rotate(-20deg); opacity: 0; }
 }
 
+/* Animated sun behind Ventoux peak */
+@keyframes solarPulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50%       { opacity: 0.90; transform: scale(1.14); }
+}
+.solar-pulse { animation: solarPulse 4.5s ease-in-out infinite; }
+
+/* Scroll-triggered petal burst */
+@keyframes scrollPetal {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg) scale(0.5); opacity: 0; }
+  18%  { opacity: 0.75; transform: translateY(-22px) translateX(calc(var(--pdx, 20px) * 0.2)) rotate(calc(var(--prot, 30deg) * 0.2)) scale(1); }
+  100% { transform: translateY(-100px) translateX(var(--pdx, 20px)) rotate(var(--prot, 30deg)) scale(0.6); opacity: 0; }
+}
+
+/* Button glow / pulse */
+@keyframes btnGlow {
+  0%, 100% { box-shadow: 0 4px 14px rgba(123,157,228,0.45), 0 0 0 0 rgba(123,157,228,0.25); }
+  50%       { box-shadow: 0 6px 22px rgba(123,157,228,0.65), 0 0 0 7px rgba(123,157,228,0.06); }
+}
+@keyframes btnGlowGreen {
+  0%, 100% { box-shadow: 0 4px 14px rgba(37,211,102,0.40), 0 0 0 0 rgba(37,211,102,0.20); }
+  50%       { box-shadow: 0 6px 22px rgba(37,211,102,0.60), 0 0 0 7px rgba(37,211,102,0.06); }
+}
+.btn-glow       { animation: btnGlow      2.8s ease-in-out infinite; }
+.btn-glow-green { animation: btnGlowGreen 2.8s ease-in-out 1s infinite; }
+
 /* Mistral drift animations — elements crossing the full viewport */
 @keyframes mistralRight {
   0%   { transform: translateX(-220px) translateY(0px) rotate(var(--rs, -10deg)); opacity: 0; }
@@ -133,13 +159,16 @@
   .pulse-ring,
   .particle,
   .mistral-el,
+  .solar-pulse,
+  .btn-glow,
+  .btn-glow-green,
   .animate-float,
   .animate-float-delay,
   .animate-float-slow,
   .animate-pulse-soft {
     animation: none !important;
   }
-  .particle  { opacity: 0 !important; }
+  .particle   { opacity: 0 !important; }
   .mistral-el { opacity: 0 !important; }
   .reveal {
     opacity: 1 !important;

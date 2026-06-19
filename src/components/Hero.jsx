@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import Logo from './Logo'
-import LavenderSprig from './LavenderSprig'
 import FloatingParticles from './FloatingParticles'
 
 const badges = [
@@ -35,10 +34,6 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-olive opacity-[0.08] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
       <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-brand-jaune opacity-[0.12] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-      {/* Lavender sprigs – desktop only */}
-      <LavenderSprig className="w-7 h-16 absolute top-32 right-10 hidden xl:block opacity-40" variant="slow" />
-      <LavenderSprig className="w-6 h-14 absolute top-52 right-28 hidden xl:block opacity-28" variant="alt" />
-      <LavenderSprig className="w-5 h-12 absolute bottom-36 right-14 hidden xl:block opacity-25" variant="sway" />
 
       {/* Floating dots */}
       <div className="absolute top-28 right-20 w-3 h-3 rounded-full bg-brand-orange opacity-50 animate-float hidden lg:block" />
@@ -122,6 +117,14 @@ export default function Hero() {
       </div>
 
       <FloatingParticles seed={0} />
+
+      {/* Animated sun behind mountain peak */}
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true">
+        <div
+          className="solar-pulse w-32 h-32 sm:w-48 sm:h-48 rounded-full blur-3xl"
+          style={{ background: 'radial-gradient(circle, rgba(232,222,188,0.72) 0%, rgba(232,222,188,0.28) 45%, transparent 70%)' }}
+        />
+      </div>
 
       {/* Ventoux mountain silhouette – parallax target */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none will-change-transform" ref={mountainRef}>

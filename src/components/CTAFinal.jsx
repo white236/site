@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
-import LavenderSprig from './LavenderSprig'
 
 export default function CTAFinal() {
   const containerRef = useRef(null)
@@ -11,13 +10,7 @@ export default function CTAFinal() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-noir/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/4" />
 
-      <div style={{ filter: 'brightness(0) invert(1)', opacity: 0.15 }}>
-        <LavenderSprig className="w-8 h-16 absolute top-8 right-10 hidden xl:block" variant="slow" />
-      </div>
-      <div style={{ filter: 'brightness(0) invert(1)', opacity: 0.12 }}>
-        <LavenderSprig className="w-6 h-12 absolute bottom-10 left-8 hidden xl:block" variant="alt" />
-      </div>
-      <div className="absolute top-10 left-14 w-2 h-2 bg-white/30 rounded-full animate-float hidden sm:block" />
+<div className="absolute top-10 left-14 w-2 h-2 bg-white/30 rounded-full animate-float hidden sm:block" />
       <div className="absolute top-20 left-28 w-1.5 h-1.5 bg-white/20 rounded-full animate-float-delay hidden sm:block" />
       <div className="absolute bottom-14 right-16 w-3 h-3 bg-white/15 rounded-full animate-float-slow hidden sm:block" />
       <div className="absolute top-16 right-32 w-1.5 h-1.5 bg-white/25 rounded-full animate-float hidden sm:block" />
@@ -38,7 +31,7 @@ export default function CTAFinal() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <a
               href="tel:0620711975"
-              className="bg-white text-brand-orange font-heading font-black text-base px-9 py-4 rounded-full hover:bg-cream transition-all duration-300 hover:-translate-y-0.5 shadow-orange-lg inline-flex items-center gap-2.5"
+              className="btn-glow bg-white text-brand-orange font-heading font-black text-base px-9 py-4 rounded-full hover:bg-cream transition-all duration-300 hover:-translate-y-0.5 inline-flex items-center gap-2.5"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />

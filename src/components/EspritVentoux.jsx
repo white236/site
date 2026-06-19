@@ -1,7 +1,7 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
-import LavenderSprig from './LavenderSprig'
 import FloatingParticles from './FloatingParticles'
+import WindyVines from './WindyVines'
 
 const cards = [
   {
@@ -88,8 +88,7 @@ export default function EspritVentoux() {
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-olive/[0.07] rounded-full blur-3xl pointer-events-none translate-x-1/4 translate-y-1/4" />
 
       {/* Decorative lavender sprigs */}
-      <LavenderSprig className="w-8 h-16 absolute top-10 right-10 hidden xl:block opacity-30" variant="slow" />
-      <LavenderSprig className="w-6 h-12 absolute bottom-14 left-8 hidden xl:block opacity-20" variant="alt" />
+      <WindyVines />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14 reveal">

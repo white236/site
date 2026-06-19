@@ -1,6 +1,5 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
-import LavenderSprig from './LavenderSprig'
 import FloatingParticles from './FloatingParticles'
 
 const cards = [
@@ -53,8 +52,6 @@ export default function Differentiators() {
       <FloatingParticles seed={6} />
 
       {/* Lavender sprigs */}
-      <LavenderSprig className="w-8 h-16 absolute top-10 right-8 hidden xl:block opacity-30" variant="slow" />
-      <LavenderSprig className="w-6 h-12 absolute bottom-10 left-6 hidden xl:block opacity-20" variant="alt" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
