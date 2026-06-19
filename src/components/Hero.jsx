@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import Logo from './Logo'
 import LavenderSprig from './LavenderSprig'
+import FloatingParticles from './FloatingParticles'
 
 const badges = [
   { icon: '💰', text: '20 % seulement quand le logement est loué' },
@@ -61,16 +62,16 @@ export default function Hero() {
             <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-[3.25rem] text-noir leading-[1.08] text-balance">
               La conciergerie{' '}
               <span className="relative inline-block">
-                <span className="relative z-10 text-brand-orange">fraîche et locale</span>
+                <span className="relative z-10 text-brand-orange">jeune et locale</span>
                 <span className="absolute bottom-0.5 left-0 right-0 h-3 bg-brand-jaune/50 -skew-x-2 -z-0 rounded" />
               </span>
               {' '}autour du Ventoux.
             </h1>
 
             <p className="font-body text-lg sm:text-xl text-noir/60 leading-relaxed max-w-xl">
-              Vous avez un logement à louer ?{' '}
-              <strong className="text-noir/80 font-semibold">Je m'occupe du quotidien</strong> : messages, arrivées, départs, ménage, suivi et voyageurs.
-              Vous gardez la main, je gère le terrain.
+              Un regard neuf sur la location courte durée.{' '}
+              <strong className="text-noir/80 font-semibold">Je m'occupe du terrain</strong> : voyageurs, ménage, check-in, suivi.
+              Vous gardez la main, je fais tourner le quotidien.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3.5">
@@ -119,6 +120,8 @@ export default function Hero() {
           </div>
         </div>
       </div>
+
+      <FloatingParticles seed={0} />
 
       {/* Ventoux mountain silhouette – parallax target */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none will-change-transform" ref={mountainRef}>

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
+import FloatingParticles from './FloatingParticles'
 
 export default function ContactForm() {
   const containerRef = useRef(null)
@@ -7,7 +8,9 @@ export default function ContactForm() {
 
   return (
     <section id="contact" className="py-20 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(242,101,34,0.06)_0%,transparent_65%)] pointer-events-none" />
+      <FloatingParticles seed={9} />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(123,157,228,0.08)_0%,transparent_65%)] pointer-events-none" />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-brand-orange/[0.07] rounded-full blur-3xl pointer-events-none -translate-x-1/3 -translate-y-1/3" />
 
       <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
@@ -24,10 +27,11 @@ export default function ContactForm() {
                 Contact direct
               </span>
               <h2 className="font-heading font-black text-3xl sm:text-4xl text-noir leading-tight mb-4 text-balance">
-                Vous avez un logement autour du Ventoux ?
+                On parle de votre logement ?
               </h2>
               <p className="font-body text-lg text-noir/55 leading-relaxed max-w-xl mx-auto">
-                Appelez-moi directement ou envoyez-moi un message. On regarde ensemble si votre logement peut être mieux exploité en courte durée.
+                Un appel, un message, et on voit simplement si je peux vous aider.
+                Pas de discours compliqué.
               </p>
             </div>
 

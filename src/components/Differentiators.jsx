@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 import LavenderSprig from './LavenderSprig'
+import FloatingParticles from './FloatingParticles'
 
 const cards = [
   {
@@ -49,6 +50,8 @@ export default function Differentiators() {
       <div className="absolute top-32 left-20 w-1.5 h-1.5 rounded-full bg-brand-olive/40 animate-float-delay hidden sm:block" />
       <div className="absolute bottom-20 right-12 w-2 h-2 rounded-full bg-brand-orange/25 animate-float-slow hidden sm:block" />
 
+      <FloatingParticles seed={6} />
+
       {/* Lavender sprigs */}
       <LavenderSprig className="w-8 h-16 absolute top-10 right-8 hidden xl:block opacity-30" variant="slow" />
       <LavenderSprig className="w-6 h-12 absolute bottom-10 left-6 hidden xl:block opacity-20" variant="alt" />
@@ -69,7 +72,7 @@ export default function Differentiators() {
               </span>
             </h2>
             <p className="font-body text-lg text-noir/55 leading-relaxed">
-              Le Lokal Ventoux garde l'énergie d'une conciergerie fraîche, mais avec une gestion carrée : suivi des ménages, photos avant/après, prestataires déclarés, contact direct et process clair en cas d'imprévu.
+              Le Lokal Ventoux, c'est une conciergerie nouvelle génération : de l'énergie, de la réactivité, et une gestion carrée. Suivi des ménages, photos avant/après, prestataires déclarés, contact direct et process clair en cas d'imprévu.
             </p>
           </div>
 

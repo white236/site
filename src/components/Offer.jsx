@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
+import FloatingParticles from './FloatingParticles'
 
 const services = [
   {
@@ -50,6 +51,7 @@ export default function Offer() {
 
   return (
     <section id="offre" className="py-20 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
+      <FloatingParticles seed={3} />
       <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/[0.08] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-olive/[0.07] rounded-full blur-3xl pointer-events-none" />
 
@@ -73,10 +75,12 @@ export default function Offer() {
             <div
               key={i}
               className={`reveal reveal-delay-${(i % 4) + 1} group bg-white rounded-3xl p-5 shadow-card
-                hover:shadow-card-hover hover:-translate-y-1.5 transition-all duration-300 border border-cream-deeper`}
+                hover:shadow-card-hover hover:-translate-y-2 hover:border-brand-orange/30
+                transition-all duration-300 border border-cream-deeper`}
             >
-              <div className="w-12 h-12 bg-cream-dark rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-orange/10 transition-colors duration-300">
+              <div className="relative w-12 h-12 bg-cream-dark rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-orange/10 transition-colors duration-300">
                 {s.icon}
+                <span className="absolute -top-1.5 -right-1.5 text-xs opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-300 select-none">🌿</span>
               </div>
               <h3 className="font-heading font-extrabold text-noir text-base mb-1.5 leading-snug group-hover:text-brand-orange transition-colors duration-300">
                 {s.title}

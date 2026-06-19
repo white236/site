@@ -101,17 +101,30 @@
 .lavender-sway-slow { animation: swayWind    7s ease-in-out 0.5s   infinite; transform-origin: bottom center; }
 .pulse-ring         { animation: pulseRing   1.5s ease-out          infinite; }
 
+@keyframes floatParticleR {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg);      opacity: 0; }
+  8%   { opacity: var(--p-op, 0.28); }
+  100% { transform: translateY(-340px) translateX(45px) rotate(25deg); opacity: 0; }
+}
+@keyframes floatParticleL {
+  0%   { transform: translateY(0) translateX(0) rotate(0deg);       opacity: 0; }
+  8%   { opacity: var(--p-op, 0.22); }
+  100% { transform: translateY(-310px) translateX(-40px) rotate(-20deg); opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lavender-sway,
   .lavender-sway-alt,
   .lavender-sway-slow,
   .pulse-ring,
+  .particle,
   .animate-float,
   .animate-float-delay,
   .animate-float-slow,
   .animate-pulse-soft {
     animation: none !important;
   }
+  .particle { opacity: 0 !important; }
   .reveal {
     opacity: 1 !important;
     transform: none !important;

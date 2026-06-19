@@ -1,4 +1,6 @@
 import { useEffect } from 'react'
+import CursorGlow from './components/CursorGlow'
+import NouvelleGeneration from './components/NouvelleGeneration'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
@@ -29,12 +31,14 @@ export default function App() {
 
   return (
     <div className="min-h-screen">
+      <CursorGlow />
       <Header />
       <main>
         <Hero />
         <Problem />
         <Offer />
         <EspritVentoux />
+        <NouvelleGeneration />
         <HowItWorks />
         <Differentiators />
         <Zone />
