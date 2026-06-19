@@ -82,7 +82,7 @@ export default function Problem() {
             Et si vous n'aviez plus à y penser ?
           </p>
           <a href="#offre" className="btn-orange shadow-orange">
-            Découvrir notre offre
+            Voir notre accompagnement
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
             </svg>

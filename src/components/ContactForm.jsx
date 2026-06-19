@@ -1,225 +1,105 @@
-import { useState, useRef } from 'react'
+import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
-
-const typeOptions = ['Appartement', 'Maison', 'Villa', 'Studio', 'Mas provençal', 'Autre']
 
 export default function ContactForm() {
   const containerRef = useRef(null)
   useRevealChildren(containerRef)
 
-  const [form, setForm] = useState({
-    nom: '',
-    telephone: '',
-    email: '',
-    ville: '',
-    type: '',
-    couchages: '',
-    message: '',
-  })
-  const [sent, setSent] = useState(false)
-
-  const handleChange = (e) => {
-    setForm((f) => ({ ...f, [e.target.name]: e.target.value }))
-  }
-
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    // In production, connect to a backend or form service (e.g. Formspree, Netlify Forms)
-    console.log('Form submitted:', form)
-    setSent(true)
-  }
-
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-cream" ref={containerRef}>
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-14 items-start">
+    <section id="contact" className="py-20 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(242,101,34,0.06)_0%,transparent_65%)] pointer-events-none" />
 
-          {/* Left: info */}
-          <div className="reveal">
-            <span className="inline-block bg-brand-orange text-white font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-5 tracking-wide">
-              Estimation gratuite
-            </span>
-            <h2 className="section-title mb-6 text-balance">
-              Parlons de votre logement
-            </h2>
-            <p className="font-body text-lg text-noir/55 leading-relaxed mb-8">
-              Remplissez ce formulaire et on vous recontacte rapidement pour une estimation personnalisée du potentiel de votre bien.
-            </p>
+      <div className="max-w-3xl mx-auto px-4 sm:px-6">
 
-            <div className="space-y-4">
+        {/* Main contact card */}
+        <div className="reveal bg-white rounded-[2.5rem] overflow-hidden shadow-card-hover border border-cream-deeper">
+
+          {/* Top orange stripe */}
+          <div className="bg-brand-orange h-2" />
+
+          <div className="p-8 sm:p-12">
+            {/* Header */}
+            <div className="text-center mb-10">
+              <span className="inline-block bg-brand-orange/10 text-brand-orange font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-4 tracking-wide">
+                Contact direct
+              </span>
+              <h2 className="font-heading font-black text-3xl sm:text-4xl text-noir leading-tight mb-4 text-balance">
+                Vous avez un logement autour du Ventoux ?
+              </h2>
+              <p className="font-body text-lg text-noir/55 leading-relaxed max-w-xl mx-auto">
+                Appelez-moi directement ou envoyez-moi un message. On regarde ensemble si votre logement peut être mieux exploité en courte durée.
+              </p>
+            </div>
+
+            {/* Phone number — very prominent */}
+            <div className="flex justify-center mb-8">
+              <a
+                href="tel:0620711975"
+                className="group flex flex-col items-center gap-1 hover:-translate-y-0.5 transition-transform duration-200"
+              >
+                <span className="text-noir/40 font-body text-sm tracking-wide">Appeler Victor</span>
+                <span className="font-heading font-black text-4xl sm:text-5xl text-noir group-hover:text-brand-orange transition-colors duration-200 tracking-tight">
+                  06 20 71 19 75
+                </span>
+                <span className="flex items-center gap-1.5 text-brand-orange font-heading font-semibold text-sm">
+                  <span className="w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                  Disponible 7j/7
+                </span>
+              </a>
+            </div>
+
+            {/* Divider */}
+            <div className="flex items-center gap-4 mb-8">
+              <div className="flex-1 h-px bg-cream-deeper" />
+              <span className="text-noir/30 font-body text-sm">ou</span>
+              <div className="flex-1 h-px bg-cream-deeper" />
+            </div>
+
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+              <a
+                href="tel:0620711975"
+                className="group flex-1 sm:flex-none sm:min-w-[220px] bg-brand-orange text-white font-heading font-black text-base px-8 py-4 rounded-2xl hover:bg-brand-orange-dark transition-all duration-300 hover:-translate-y-0.5 shadow-orange flex items-center justify-center gap-3"
+              >
+                <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                </svg>
+                Appeler Victor
+              </a>
+              <a
+                href="https://wa.me/33620711975"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex-1 sm:flex-none sm:min-w-[220px] bg-[#25D366] text-white font-heading font-black text-base px-8 py-4 rounded-2xl hover:bg-[#1ebe5d] transition-all duration-300 hover:-translate-y-0.5 flex items-center justify-center gap-3"
+              >
+                <svg className="w-5 h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Envoyer un WhatsApp
+              </a>
+            </div>
+
+            {/* Trust strip */}
+            <div className="grid grid-cols-3 gap-4 pt-8 border-t border-cream-deeper">
               {[
-                { icon: '📞', label: 'Réponse rapide', desc: 'On vous rappelle sous 24h ouvrées' },
-                { icon: '🎯', label: 'Estimation personnalisée', desc: 'Basée sur votre logement et le marché local' },
-                { icon: '🔓', label: 'Sans engagement', desc: 'Aucun contrat à signer pour obtenir votre estimation' },
+                { icon: '⚡', label: 'Réponse rapide' },
+                { icon: '📍', label: 'Conciergerie locale' },
+                { icon: '🔓', label: 'Sans engagement' },
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-brand-orange/10 rounded-xl flex items-center justify-center text-lg flex-shrink-0">
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p className="font-heading font-bold text-noir text-sm">{item.label}</p>
-                    <p className="text-noir/50 font-body text-sm">{item.desc}</p>
-                  </div>
+                <div key={i} className="flex flex-col items-center text-center gap-1">
+                  <span className="text-xl">{item.icon}</span>
+                  <span className="font-heading font-semibold text-noir/50 text-xs">{item.label}</span>
                 </div>
               ))}
             </div>
-
-            <div className="mt-10 bg-noir rounded-3xl p-6 reveal">
-              <p className="text-white/60 font-body text-sm mb-1">Préférez WhatsApp ?</p>
-              <a
-                href="https://wa.me/33600000000"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 text-white font-heading font-bold text-base hover:text-green-400 transition-colors"
-              >
-                <svg className="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-                </svg>
-                Contacter directement
-              </a>
-            </div>
           </div>
+        </div>
 
-          {/* Right: form */}
-          <div className="reveal reveal-delay-2">
-            {sent ? (
-              <div className="bg-white rounded-4xl p-10 shadow-card text-center border border-cream-deeper">
-                <div className="text-5xl mb-4">🎉</div>
-                <h3 className="font-heading font-black text-noir text-2xl mb-3">Message envoyé !</h3>
-                <p className="text-noir/55 font-body text-base">
-                  On vous recontacte sous 24h pour discuter du potentiel de votre logement.
-                </p>
-                <button
-                  onClick={() => setSent(false)}
-                  className="mt-6 text-brand-orange font-heading font-bold text-sm hover:underline"
-                >
-                  Envoyer un autre message
-                </button>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white rounded-4xl p-7 sm:p-9 shadow-card border border-cream-deeper space-y-5"
-              >
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-heading font-bold text-noir text-sm mb-1.5">
-                      Nom <span className="text-brand-orange">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      name="nom"
-                      value={form.nom}
-                      onChange={handleChange}
-                      required
-                      placeholder="Jean Dupont"
-                      className="w-full bg-cream border border-cream-deeper rounded-2xl px-4 py-3 font-body text-sm text-noir placeholder-noir/30 focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange transition-all"
-                    />
-                  </div>
-                  <div>
-                    <label className="block font-heading font-bold text-noir text-sm mb-1.5">
-                      Téléphone <span className="text-brand-orange">*</span>
-                    </label>
-                    <input
-                      type="tel"
-                      name="telephone"
-                      value={form.telephone}
-                      onChange={handleChange}
-                      required
-                      placeholder="06 00 00 00 00"
-                      className="w-full bg-cream border border-cream-deeper rounded-2xl px-4 py-3 font-body text-sm text-noir placeholder-noir/30 focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-heading font-bold text-noir text-sm mb-1.5">
-                    Email <span className="text-brand-orange">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    name="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="jean@exemple.fr"
-                    className="w-full bg-cream border border-cream-deeper rounded-2xl px-4 py-3 font-body text-sm text-noir placeholder-noir/30 focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange transition-all"
-                  />
-                </div>
-
-                <div>
-                  <label className="block font-heading font-bold text-noir text-sm mb-1.5">
-                    Ville du logement <span className="text-brand-orange">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    name="ville"
-                    value={form.ville}
-                    onChange={handleChange}
-                    required
-                    placeholder="Bédoin, Malaucène, Carpentras..."
-                    className="w-full bg-cream border border-cream-deeper rounded-2xl px-4 py-3 font-body text-sm text-noir placeholder-noir/30 focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange transition-all"
-                  />
-                </div>
-
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block font-heading font-bold text-noir text-sm mb-1.5">Type de bien</label>
-                    <select
-                      name="type"
-                      value={form.type}
-                      onChange={handleChange}
-                      className="w-full bg-cream border border-cream-deeper rounded-2xl px-4 py-3 font-body text-sm text-noir focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange transition-all appearance-none cursor-pointer"
-                    >
-                      <option value="">Sélectionner...</option>
-                      {typeOptions.map((o) => (
-                        <option key={o} value={o}>{o}</option>
-                      ))}
-                    </select>
-                  </div>
-                  <div>
-                    <label className="block font-heading font-bold text-noir text-sm mb-1.5">Nombre de couchages</label>
-                    <input
-                      type="number"
-                      name="couchages"
-                      value={form.couchages}
-                      onChange={handleChange}
-                      min="1"
-                      max="20"
-                      placeholder="Ex : 4"
-                      className="w-full bg-cream border border-cream-deeper rounded-2xl px-4 py-3 font-body text-sm text-noir placeholder-noir/30 focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange transition-all"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label className="block font-heading font-bold text-noir text-sm mb-1.5">Message (optionnel)</label>
-                  <textarea
-                    name="message"
-                    value={form.message}
-                    onChange={handleChange}
-                    rows={3}
-                    placeholder="Décrivez brièvement votre logement, votre situation actuelle, vos questions..."
-                    className="w-full bg-cream border border-cream-deeper rounded-2xl px-4 py-3 font-body text-sm text-noir placeholder-noir/30 focus:outline-none focus:ring-2 focus:ring-brand-orange/30 focus:border-brand-orange transition-all resize-none"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full btn-orange justify-center py-4 text-base shadow-orange"
-                >
-                  Demander mon estimation gratuite
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
-
-                <p className="text-center text-noir/35 font-body text-xs">
-                  Sans engagement · Vos données sont confidentielles
-                </p>
-              </form>
-            )}
-          </div>
+        {/* Below card: Victor identity */}
+        <div className="reveal reveal-delay-2 mt-8 text-center">
+          <p className="font-body text-noir/40 text-sm">
+            <span className="font-heading font-bold text-noir/60">Victor</span> · Le Lokal Ventoux · Conciergerie courte durée · Autour du Mont Ventoux
+          </p>
         </div>
       </div>
     </section>

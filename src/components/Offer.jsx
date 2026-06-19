@@ -65,7 +65,7 @@ export default function Offer() {
             </p>
           </div>
           <a href="#contact" className="flex-shrink-0 bg-white text-brand-orange font-heading font-black text-base px-8 py-4 rounded-full hover:bg-cream transition-colors shadow-orange">
-            Estimer mon potentiel →
+            Discuter de mon logement →
           </a>
         </div>
       </div>
