@@ -105,9 +105,11 @@ export default function Differentiators() {
             <div
               key={i}
               className={`reveal reveal-delay-${(i % 3) + 1} group flex items-start gap-4 bg-cream rounded-3xl p-6
-                hover:bg-cream-dark hover:-translate-y-1 transition-all duration-300 cursor-default`}
+                border border-cream-deeper hover:border-brand-orange/20 hover:bg-white hover:shadow-card-hover hover:-translate-y-2
+                transition-all duration-300 cursor-default`}
             >
-              <div className="w-11 h-11 bg-white rounded-2xl flex items-center justify-center text-xl flex-shrink-0 shadow-card group-hover:bg-brand-orange/10 transition-colors duration-300">
+              <div className="relative w-11 h-11 bg-white rounded-2xl flex items-center justify-center text-xl flex-shrink-0 shadow-card group-hover:bg-brand-orange/10 transition-colors duration-300">
+                <span className="absolute -top-1.5 -right-1.5 text-xs opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-300 select-none">🌿</span>
                 {card.icon}
               </div>
               <div>

@@ -1,5 +1,6 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
+import LavenderSprig from './LavenderSprig'
 
 export default function CTAFinal() {
   const containerRef = useRef(null)
@@ -10,6 +11,12 @@ export default function CTAFinal() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-noir/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/4" />
 
+      <div style={{ filter: 'brightness(0) invert(1)', opacity: 0.15 }}>
+        <LavenderSprig className="w-8 h-16 absolute top-8 right-10 hidden xl:block" variant="slow" />
+      </div>
+      <div style={{ filter: 'brightness(0) invert(1)', opacity: 0.12 }}>
+        <LavenderSprig className="w-6 h-12 absolute bottom-10 left-8 hidden xl:block" variant="alt" />
+      </div>
       <div className="absolute top-10 left-14 w-2 h-2 bg-white/30 rounded-full animate-float hidden sm:block" />
       <div className="absolute top-20 left-28 w-1.5 h-1.5 bg-white/20 rounded-full animate-float-delay hidden sm:block" />
       <div className="absolute bottom-14 right-16 w-3 h-3 bg-white/15 rounded-full animate-float-slow hidden sm:block" />

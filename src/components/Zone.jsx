@@ -1,5 +1,7 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
+import LavenderSprig from './LavenderSprig'
+import FloatingParticles from './FloatingParticles'
 
 const cities = [
   { name: 'Bédoin', note: 'Porte du Ventoux' },
@@ -26,8 +28,11 @@ export default function Zone() {
 
   return (
     <section className="py-20 sm:py-28 bg-cream-dark relative overflow-hidden" ref={containerRef}>
+      <FloatingParticles seed={15} />
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-olive/[0.06] to-transparent pointer-events-none" />
       <div className="absolute top-0 right-0 w-72 h-72 bg-brand-orange/[0.07] rounded-full blur-3xl pointer-events-none translate-x-1/4 -translate-y-1/4" />
+      <LavenderSprig className="w-7 h-16 absolute top-10 right-10 hidden xl:block opacity-25" variant="slow" />
+      <LavenderSprig className="w-5 h-12 absolute bottom-16 left-8 hidden xl:block opacity-20" variant="alt" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-12 reveal">

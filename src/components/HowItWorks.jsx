@@ -1,5 +1,7 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
+import LavenderSprig from './LavenderSprig'
+import FloatingParticles from './FloatingParticles'
 
 const steps = [
   {
@@ -33,7 +35,12 @@ export default function HowItWorks() {
   useRevealChildren(containerRef)
 
   return (
-    <section id="fonctionnement" className="py-20 sm:py-28 bg-cream" ref={containerRef}>
+    <section id="fonctionnement" className="py-20 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
+      <FloatingParticles seed={18} />
+      <div className="absolute top-0 left-0 w-80 h-80 bg-brand-orange/[0.05] rounded-full blur-3xl pointer-events-none -translate-x-1/3 -translate-y-1/3" />
+      <div className="absolute bottom-0 right-0 w-64 h-64 bg-brand-olive/[0.06] rounded-full blur-3xl pointer-events-none translate-x-1/4 translate-y-1/4" />
+      <LavenderSprig className="w-8 h-16 absolute top-8 right-8 hidden xl:block opacity-25" variant="slow" />
+      <LavenderSprig className="w-6 h-12 absolute bottom-12 left-6 hidden xl:block opacity-20" variant="alt" />
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-14 reveal">
           <span className="inline-block bg-noir text-white font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-4 tracking-wide">
