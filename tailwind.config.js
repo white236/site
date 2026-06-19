@@ -17,13 +17,14 @@ export default {
           light: '#2D2D2D',
         },
         brand: {
-          orange: '#F26522',
-          'orange-light': '#FF8C42',
-          'orange-dark': '#D4541A',
+          // Bleu lavande remplace l'orange partout (les classes tailwind gardent le même nom)
+          orange: '#7B9DE4',
+          'orange-light': '#A8C2EE',
+          'orange-dark': '#5878C0',
           olive: '#6B7A50',
           'olive-light': '#8FA06B',
           'olive-dark': '#4A5537',
-          jaune: '#F4C548',
+          jaune: '#E8DEBC',  // sable chaud, accent discret
         },
       },
       fontFamily: {
@@ -37,6 +38,7 @@ export default {
       animation: {
         'float': 'float 6s ease-in-out infinite',
         'float-delay': 'float 6s ease-in-out 2s infinite',
+        'float-slow': 'float 9s ease-in-out 1s infinite',
         'fade-up': 'fadeUp 0.6s ease-out forwards',
         'pulse-soft': 'pulseSoft 3s ease-in-out infinite',
       },
@@ -55,10 +57,10 @@ export default {
         },
       },
       boxShadow: {
-        'card': '0 4px 24px rgba(26,26,26,0.08)',
-        'card-hover': '0 8px 40px rgba(26,26,26,0.16)',
-        'orange': '0 4px 24px rgba(242,101,34,0.3)',
-        'orange-lg': '0 8px 40px rgba(242,101,34,0.4)',
+        'card': '0 4px 24px rgba(26,26,26,0.07)',
+        'card-hover': '0 10px 44px rgba(26,26,26,0.13)',
+        'orange': '0 4px 24px rgba(123,157,228,0.35)',
+        'orange-lg': '0 8px 40px rgba(123,157,228,0.45)',
       },
     },
   },

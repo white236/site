@@ -7,13 +7,13 @@ export default function CTAFinal() {
 
   return (
     <section className="py-20 sm:py-28 bg-brand-orange relative overflow-hidden" ref={containerRef}>
-      {/* Organic blobs */}
-      <div className="absolute top-0 right-0 w-80 h-80 bg-white/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-noir/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/4" />
+      <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-noir/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/4" />
 
-      <div className="absolute top-12 left-16 w-3 h-3 bg-white/30 rounded-full animate-float hidden sm:block" />
-      <div className="absolute top-20 left-32 w-2 h-2 bg-white/20 rounded-full animate-float-delay hidden sm:block" />
-      <div className="absolute bottom-16 right-20 w-4 h-4 bg-white/20 rounded-full animate-float hidden sm:block" />
+      <div className="absolute top-10 left-14 w-2 h-2 bg-white/30 rounded-full animate-float hidden sm:block" />
+      <div className="absolute top-20 left-28 w-1.5 h-1.5 bg-white/20 rounded-full animate-float-delay hidden sm:block" />
+      <div className="absolute bottom-14 right-16 w-3 h-3 bg-white/15 rounded-full animate-float-slow hidden sm:block" />
+      <div className="absolute top-16 right-32 w-1.5 h-1.5 bg-white/25 rounded-full animate-float hidden sm:block" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div className="reveal">
@@ -23,7 +23,7 @@ export default function CTAFinal() {
           <h2 className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl text-white leading-tight mb-6 text-balance">
             Un logement à louer autour du Ventoux ?
           </h2>
-          <p className="text-white/85 font-body text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
+          <p className="text-white/82 font-body text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-10">
             Je m'occupe de la gestion opérationnelle : annonce, voyageurs, ménage, check-in, suivi et communication.{' '}
             <strong className="text-white">Vous gardez le contrôle, je gère le quotidien.</strong>
           </p>
@@ -51,8 +51,8 @@ export default function CTAFinal() {
             </a>
           </div>
 
-          <p className="mt-8 text-white/50 text-sm font-body">
-            Victor · Le Lokal Ventoux · Disponible 7j/7
+          <p className="mt-8 text-white/45 text-sm font-body">
+            Victor · Le Lokal Ventoux · 06 20 71 19 75 · Disponible 7j/7
           </p>
         </div>
       </div>

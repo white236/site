@@ -5,32 +5,32 @@ const problems = [
   {
     icon: '💬',
     title: 'Messages voyageurs',
-    desc: 'Répondre rapidement à toute heure, gérer questions et demandes spéciales.',
+    desc: "Répondre vite, à toute heure, gérer questions et demandes spéciales. Tous les jours.",
   },
   {
     icon: '🧹',
     title: 'Ménage entre séjours',
-    desc: 'Coordonner prestataires, contrôler la qualité, respecter les délais.',
+    desc: "Coordonner les prestataires, contrôler la qualité, respecter les délais serrés.",
   },
   {
     icon: '🔑',
     title: 'Check-in / Check-out',
-    desc: "Accueillir les voyageurs, gérer les clés, faire l'état des lieux.",
+    desc: "Accueillir les voyageurs, gérer les clés, faire l'état des lieux. À chaque séjour.",
   },
   {
     icon: '📊',
-    title: 'Optimisation des prix',
-    desc: 'Ajuster les tarifs selon la saison, les événements, la concurrence.',
+    title: 'Prix à ajuster',
+    desc: "Adapter les tarifs à la saison, aux événements, à la concurrence. En permanence.",
   },
   {
     icon: '⚡',
     title: 'Imprévus',
-    desc: "Gestion des pannes, oublis de voyageurs, urgences à n'importe quelle heure.",
+    desc: "Pannes, oublis, urgences : gérer l'inattendu à n'importe quelle heure.",
   },
   {
     icon: '⭐',
     title: 'Avis clients',
-    desc: 'Maintenir une note excellente, répondre aux avis, fidéliser.',
+    desc: "Maintenir une bonne note, répondre aux avis, soigner chaque départ.",
   },
 ]
 
@@ -40,12 +40,10 @@ export default function Problem() {
 
   return (
     <section className="bg-noir py-20 sm:py-28 relative overflow-hidden" ref={containerRef}>
-      {/* Decorative blobs */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange opacity-[0.05] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-olive opacity-[0.06] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        {/* Header */}
         <div className="text-center mb-14 reveal">
           <span className="inline-block bg-brand-orange/15 text-brand-orange font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-4 tracking-wide">
             Le vrai défi
@@ -54,35 +52,33 @@ export default function Problem() {
             Louer en courte durée, c'est rentable.{' '}
             <span className="text-brand-orange">Mais ça prend du temps.</span>
           </h2>
-          <p className="mt-4 text-white/50 text-lg max-w-xl mx-auto font-body">
-            Entre les voyageurs, le ménage, les clés et l'optimisation, gérer seul sa location devient vite un deuxième travail.
+          <p className="mt-4 text-white/45 text-lg max-w-xl mx-auto font-body">
+            Entre les messages, le ménage, les clés et les avis : gérer seul sa location, c'est vite un deuxième travail.
           </p>
         </div>
 
-        {/* Cards grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
           {problems.map((p, i) => (
             <div
               key={i}
-              className={`reveal reveal-delay-${(i % 3) + 1} group bg-noir-light rounded-3xl p-6 border border-white/[0.07]
-                hover:border-brand-orange/30 hover:bg-white/[0.04] transition-all duration-300 cursor-default`}
+              className={`reveal reveal-delay-${(i % 3) + 1} group bg-noir-light rounded-3xl p-6 border border-white/[0.06]
+                hover:border-brand-orange/25 hover:bg-white/[0.04] hover:-translate-y-1 transition-all duration-300 cursor-default`}
             >
-              <div className="text-4xl mb-4">{p.icon}</div>
-              <h3 className="font-heading font-bold text-white text-lg mb-2 group-hover:text-brand-orange transition-colors">
+              <div className="text-3xl mb-4">{p.icon}</div>
+              <h3 className="font-heading font-bold text-white text-base mb-2 group-hover:text-brand-orange transition-colors duration-300">
                 {p.title}
               </h3>
-              <p className="text-white/50 font-body text-sm leading-relaxed">{p.desc}</p>
+              <p className="text-white/45 font-body text-sm leading-relaxed">{p.desc}</p>
             </div>
           ))}
         </div>
 
-        {/* Bottom nudge */}
         <div className="text-center mt-12 reveal">
-          <p className="text-white/40 font-body text-base mb-4">
-            Et si vous n'aviez plus à y penser ?
+          <p className="text-white/38 font-body text-base mb-4">
+            Et si quelqu'un gérait ça pour vous ?
           </p>
           <a href="#offre" className="btn-orange shadow-orange">
-            Voir notre accompagnement
+            Voir ce que je gère
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
             </svg>

@@ -7,9 +7,17 @@ const cities = [
   { name: 'Mazan', note: 'Village de caractère' },
   { name: 'Caromb', note: 'Fontaine légendaire' },
   { name: 'Mormoiron', note: 'Vignoble & collines' },
+  { name: 'Villes-sur-Auzon', note: 'Gorges de la Nesque' },
+  { name: 'Venasque', note: 'Village perché' },
   { name: 'Pernes-les-Fontaines', note: 'Cité des fontaines' },
   { name: 'Carpentras', note: 'Cœur du Comtat' },
-  { name: 'Venasque', note: 'Village perché' },
+  { name: 'Aubignan', note: 'Pays du Ventoux' },
+  { name: 'Beaumes-de-Venise', note: 'Muscat & dentelles' },
+  { name: 'Crillon-le-Brave', note: 'Face au sommet' },
+  { name: 'Saint-Pierre-de-Vassols', note: 'Hameau secret' },
+  { name: 'Modène', note: 'Entre vigne et garrigue' },
+  { name: 'Saint-Didier', note: 'Sud Ventoux' },
+  { name: "L'Isle-sur-la-Sorgue", note: 'Venise provençale' },
 ]
 
 export default function Zone() {
@@ -18,57 +26,48 @@ export default function Zone() {
 
   return (
     <section className="py-20 sm:py-28 bg-cream-dark relative overflow-hidden" ref={containerRef}>
-      {/* Mountain silhouette decorative */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-olive/[0.07] to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-olive/[0.06] to-transparent pointer-events-none" />
+      <div className="absolute top-0 right-0 w-72 h-72 bg-brand-orange/[0.07] rounded-full blur-3xl pointer-events-none translate-x-1/4 -translate-y-1/4" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14 reveal">
+        <div className="text-center mb-12 reveal">
           <span className="inline-block bg-brand-olive text-white font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-4 tracking-wide">
             Zone d'intervention
           </span>
-          <h2 className="section-title max-w-xl mx-auto">
-            Autour du{' '}
-            <span className="text-brand-orange">Ventoux</span>
+          <h2 className="section-title max-w-2xl mx-auto text-balance">
+            Autour du Ventoux,{' '}
+            <span className="text-brand-orange">au plus proche du terrain.</span>
           </h2>
-          <p className="mt-4 text-noir/50 text-lg max-w-lg mx-auto font-body">
-            Conciergerie locale : on connaît chaque village, chaque prestataire, chaque spécificité du territoire.
+          <p className="mt-4 text-noir/50 text-lg max-w-xl mx-auto font-body">
+            Le Lokal Ventoux accompagne les propriétaires à Bédoin, Malaucène, Mazan, Caromb et dans tous les villages autour du Ventoux.
           </p>
         </div>
 
-        {/* Map placeholder with cities */}
-        <div className="relative bg-white rounded-4xl p-8 sm:p-10 shadow-card border border-cream-deeper overflow-hidden">
-          {/* Decorative Ventoux peak visual */}
-          <div className="absolute top-6 right-6 sm:right-10 text-right">
-            <div className="flex items-end gap-1 justify-end opacity-10">
-              <div className="w-0 h-0 border-l-[30px] border-r-[30px] border-b-[50px] border-l-transparent border-r-transparent border-b-brand-olive" />
-              <div className="w-0 h-0 border-l-[50px] border-r-[50px] border-b-[80px] border-l-transparent border-r-transparent border-b-brand-olive -ml-2" />
-              <div className="w-0 h-0 border-l-[25px] border-r-[25px] border-b-[40px] border-l-transparent border-r-transparent border-b-brand-olive" />
-            </div>
-            <p className="text-xs font-heading font-bold text-brand-olive/40 mt-1 tracking-widest">MONT VENTOUX</p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+        <div className="bg-white rounded-4xl p-7 sm:p-10 shadow-card border border-cream-deeper">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {cities.map((city, i) => (
               <div
                 key={i}
-                className={`reveal reveal-delay-${(i % 4) + 1} group bg-cream rounded-2xl px-4 py-4 hover:bg-brand-orange/5 hover:border-brand-orange/20 border border-transparent transition-all duration-300`}
+                className={`reveal reveal-delay-${(i % 4) + 1} group bg-cream rounded-2xl px-4 py-3.5
+                  hover:bg-brand-orange/8 hover:border-brand-orange/20 border border-transparent
+                  transition-all duration-250 hover:-translate-y-0.5`}
               >
-                <div className="flex items-center gap-2 mb-1">
-                  <div className="w-2 h-2 rounded-full bg-brand-orange flex-shrink-0" />
-                  <span className="font-heading font-bold text-noir text-base group-hover:text-brand-orange transition-colors">
+                <div className="flex items-center gap-2 mb-0.5">
+                  <div className="w-1.5 h-1.5 rounded-full bg-brand-orange flex-shrink-0 group-hover:scale-125 transition-transform" />
+                  <span className="font-heading font-bold text-noir text-sm group-hover:text-brand-orange transition-colors duration-250">
                     {city.name}
                   </span>
                 </div>
-                <p className="text-noir/45 font-body text-xs pl-4">{city.note}</p>
+                <p className="text-noir/38 font-body text-xs pl-3.5">{city.note}</p>
               </div>
             ))}
           </div>
 
           <div className="mt-8 pt-6 border-t border-cream-deeper text-center reveal">
-            <p className="text-noir/50 font-body text-sm">
-              Votre commune n'est pas listée ?{' '}
+            <p className="text-noir/45 font-body text-sm">
+              Autre village autour du Ventoux ?{' '}
               <a href="#contact" className="text-brand-orange font-heading font-bold hover:underline">
-                Contactez-nous, on étudie toutes les demandes.
+                Contactez-moi, j'étudie toutes les demandes.
               </a>
             </p>
           </div>

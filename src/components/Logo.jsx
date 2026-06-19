@@ -1,12 +1,13 @@
-// Pour utiliser le vrai logo PNG : sauvegardez votre logo sous src/assets/logo-le-lokal.png
-// puis changez l'import ci-dessous de .svg en .png
+// Pour intégrer le vrai logo PNG :
+//   1. Uploadez votre logo sur GitHub dans src/assets/ sous le nom logo-le-lokal.png
+//   2. Changez la ligne d'import ci-dessous de .svg en .png
 import logoUrl from '../assets/logo-le-lokal.svg'
 
 const sizeMap = {
   xs: 'h-7',
   sm: 'h-9',
   md: 'h-12',
-  lg: 'h-18',
+  lg: 'h-16',
   xl: 'h-24',
   '2xl': 'h-32',
 }

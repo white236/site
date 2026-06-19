@@ -1,27 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 230" role="img" aria-label="Le Lokal Ventoux – Conciergerie">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 235" role="img" aria-label="Le Lokal Ventoux – Conciergerie">
   <!-- "Le" -->
-  <text x="100" y="82" text-anchor="middle"
+  <text x="96" y="84"
+    text-anchor="middle"
     font-family="'Nunito', 'Arial Black', Arial, sans-serif"
-    font-weight="900" font-size="80" fill="#1A1A1A">Le</text>
-  <!-- Orange dot (period of "Le.") -->
-  <circle cx="158" cy="53" r="12" fill="#F26522"/>
+    font-weight="900"
+    font-size="82"
+    fill="#1A1A1A">Le</text>
 
-  <!-- "Lokal" – large -->
-  <text x="190" y="168" text-anchor="middle"
+  <!-- Point orange (le "." de "Le.") -->
+  <circle cx="157" cy="55" r="12" fill="#F26522"/>
+
+  <!-- "Lokal" – grande taille -->
+  <text x="190" y="168"
+    text-anchor="middle"
     font-family="'Nunito', 'Arial Black', Arial, sans-serif"
-    font-weight="900" font-size="110" fill="#1A1A1A">Lokal</text>
-  <!-- White ring to mimic the 'o' counter shape -->
-  <circle cx="106" cy="120" r="36" fill="white"/>
-  <!-- Orange circle inside 'o' -->
-  <circle cx="106" cy="120" r="20" fill="#F26522"/>
+    font-weight="900"
+    font-size="112"
+    fill="#1A1A1A">Lokal</text>
+
+  <!-- Anneau blanc (simulé par couleur crème du site) autour du cercle orange dans le "o" -->
+  <circle cx="106" cy="118" r="35" fill="white"/>
+  <!-- Cercle orange dans le "o" -->
+  <circle cx="106" cy="118" r="19" fill="#F26522"/>
 
   <!-- "— VENTOUX —" -->
-  <text x="190" y="196" text-anchor="middle"
+  <text x="190" y="196"
+    text-anchor="middle"
     font-family="'Nunito', Arial, sans-serif"
-    font-weight="800" font-size="20" fill="#F26522" letter-spacing="5">— VENTOUX —</text>
+    font-weight="800"
+    font-size="20"
+    fill="#F26522"
+    letter-spacing="5">— VENTOUX —</text>
 
   <!-- "CONCIERGERIE" -->
-  <text x="190" y="222" text-anchor="middle"
+  <text x="190" y="222"
+    text-anchor="middle"
     font-family="'Nunito', Arial, sans-serif"
-    font-weight="600" font-size="14" fill="#1A1A1A" letter-spacing="8">CONCIERGERIE</text>
+    font-weight="600"
+    font-size="13.5"
+    fill="#1A1A1A"
+    letter-spacing="8">CONCIERGERIE</text>
 </svg>
