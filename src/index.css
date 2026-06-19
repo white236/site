@@ -112,19 +112,35 @@
   100% { transform: translateY(-310px) translateX(-40px) rotate(-20deg); opacity: 0; }
 }
 
+/* Mistral drift animations — elements crossing the full viewport */
+@keyframes mistralRight {
+  0%   { transform: translateX(-220px) translateY(0px) rotate(var(--rs, -10deg)); opacity: 0; }
+  6%   { opacity: var(--mop, 0.4); }
+  94%  { opacity: var(--mop, 0.4); }
+  100% { transform: translateX(calc(100vw + 220px)) translateY(var(--ye, -50px)) rotate(var(--re, 15deg)); opacity: 0; }
+}
+@keyframes mistralLeft {
+  0%   { transform: translateX(calc(100vw + 220px)) translateY(0px) rotate(var(--rs, 10deg)); opacity: 0; }
+  6%   { opacity: var(--mop, 0.4); }
+  94%  { opacity: var(--mop, 0.4); }
+  100% { transform: translateX(-220px) translateY(var(--ye, 50px)) rotate(var(--re, -15deg)); opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .lavender-sway,
   .lavender-sway-alt,
   .lavender-sway-slow,
   .pulse-ring,
   .particle,
+  .mistral-el,
   .animate-float,
   .animate-float-delay,
   .animate-float-slow,
   .animate-pulse-soft {
     animation: none !important;
   }
-  .particle { opacity: 0 !important; }
+  .particle  { opacity: 0 !important; }
+  .mistral-el { opacity: 0 !important; }
   .reveal {
     opacity: 1 !important;
     transform: none !important;
