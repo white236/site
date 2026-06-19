@@ -37,10 +37,10 @@ export default function App() {
         <Hero />
         <Problem />
         <Offer />
-        <EspritVentoux />
         <NouvelleGeneration />
         <HowItWorks />
         <Differentiators />
+        <EspritVentoux />
         <Zone />
         <CTAFinal />
         <ContactForm />

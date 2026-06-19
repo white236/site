@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 import LavenderSprig from './LavenderSprig'
+import FloatingParticles from './FloatingParticles'
 
 const cards = [
   {
@@ -81,6 +82,7 @@ export default function EspritVentoux() {
 
   return (
     <section className="py-20 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
+      <FloatingParticles seed={12} />
       {/* Blobs */}
       <div className="absolute top-0 left-0 w-80 h-80 bg-brand-orange/[0.07] rounded-full blur-3xl pointer-events-none -translate-x-1/4 -translate-y-1/4" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-olive/[0.07] rounded-full blur-3xl pointer-events-none translate-x-1/4 translate-y-1/4" />
