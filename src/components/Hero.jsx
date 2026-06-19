@@ -118,12 +118,42 @@ export default function Hero() {
 
       <FloatingParticles seed={0} />
 
-      {/* Animated sun behind mountain peak */}
-      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 pointer-events-none" aria-hidden="true">
-        <div
-          className="solar-pulse w-32 h-32 sm:w-48 sm:h-48 rounded-full blur-3xl"
-          style={{ background: 'radial-gradient(circle, rgba(232,222,188,0.72) 0%, rgba(232,222,188,0.28) 45%, transparent 70%)' }}
-        />
+      {/* Sun — peeking above Ventoux peak, rendered before mountain so it sits behind */}
+      <div
+        className="solar-pulse absolute left-1/2 -translate-x-1/2 pointer-events-none bottom-[68px] sm:bottom-[105px]"
+        aria-hidden="true"
+      >
+        <svg
+          className="w-14 h-14 sm:w-20 sm:h-20"
+          viewBox="0 0 64 64"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          {/* Glow halos */}
+          <circle cx="32" cy="32" r="31" fill="rgba(240,215,140,0.10)" />
+          <circle cx="32" cy="32" r="24" fill="rgba(240,215,140,0.18)" />
+          {/* Sun disc */}
+          <circle cx="32" cy="32" r="16" fill="rgba(245,220,145,0.52)" />
+          {/* Bright center */}
+          <circle cx="32" cy="32" r="9"  fill="rgba(255,240,180,0.80)" />
+          <circle cx="32" cy="32" r="4"  fill="rgba(255,252,220,0.92)" />
+          {/* Slowly rotating rays */}
+          <g className="sun-rays">
+            {[0,45,90,135,180,225,270,315].map((deg) => {
+              const r = Math.PI / 180 * deg
+              return (
+                <line
+                  key={deg}
+                  x1={32 + 20 * Math.cos(r)} y1={32 + 20 * Math.sin(r)}
+                  x2={32 + 29 * Math.cos(r)} y2={32 + 29 * Math.sin(r)}
+                  stroke="rgba(230,205,125,0.52)"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                />
+              )
+            })}
+          </g>
+        </svg>
       </div>
 
       {/* Ventoux mountain silhouette – parallax target */}

@@ -120,7 +120,7 @@ export default function MistralParticles() {
               '--re':  `${el.re}deg`,
               '--ye':  `${el.ye}px`,
               '--mop': el.op,
-              animation: `${anim} ${el.dur}s linear ${el.delay}s infinite`,
+              animation: `${anim} ${el.dur}s linear ${el.delay}s infinite backwards`,
               willChange: 'transform, opacity',
             }}
           >
