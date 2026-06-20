@@ -187,6 +187,40 @@
   }
 }
 
+/* Chapter transition animations */
+@keyframes chapterEnter {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.982);
+    filter: blur(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+@keyframes chapterExit {
+  from { opacity: 1; transform: scale(1); }
+  to   { opacity: 0; transform: scale(0.97) translateY(-12px); filter: blur(4px); }
+}
+.chapter-enter {
+  animation: chapterEnter 0.52s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.chapter-exit {
+  animation: chapterExit 0.35s ease forwards;
+  pointer-events: none;
+}
+
+/* Pill chapter label flip-in */
+@keyframes pillLabelIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.chapter-num-in {
+  animation: pillLabelIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
