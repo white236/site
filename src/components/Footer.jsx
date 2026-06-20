@@ -12,7 +12,7 @@ export default function Footer() {
   return (
     <footer className="bg-noir text-white pt-16 pb-8">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-10 mb-14">
 
           {/* Brand */}
           <div className="lg:col-span-2">
@@ -72,17 +72,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Zone */}
-          <div>
-            <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-wide uppercase">Zone</h4>
-            <ul className="space-y-2">
-              {['Bédoin', 'Malaucène', 'Mazan', 'Caromb', 'Mormoiron', 'Carpentras'].map((v) => (
-                <li key={v}>
-                  <span className="font-body text-sm text-white/50">{v}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
         </div>
 
         {/* Zone strip */}
