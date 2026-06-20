@@ -40,7 +40,11 @@ export default function Differentiators() {
   useRevealChildren(containerRef)
 
   return (
-    <section className="py-20 sm:py-28 bg-white relative overflow-hidden" ref={containerRef}>
+    <section
+      className="py-20 sm:py-28 relative overflow-hidden"
+      style={{ background: 'linear-gradient(150deg,#FAF5EC 0%,rgba(168,128,205,.07) 35%,rgba(188,148,215,.10) 55%,rgba(168,128,205,.06) 75%,#FAF5EC 100%)' }}
+      ref={containerRef}
+    >
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/[0.05] rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/4" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-olive/[0.06] rounded-full blur-3xl pointer-events-none -translate-x-1/4 translate-y-1/4" />
 

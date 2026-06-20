@@ -39,7 +39,12 @@ export default function Security() {
   useRevealChildren(containerRef)
 
   return (
-    <section id="securite" className="py-20 sm:py-28 bg-white relative overflow-hidden" ref={containerRef}>
+    <section
+      id="securite"
+      className="py-20 sm:py-28 relative overflow-hidden"
+      style={{ background: 'linear-gradient(150deg,#FAF5EC 0%,rgba(168,128,205,.07) 35%,rgba(188,148,215,.10) 55%,rgba(168,128,205,.06) 75%,#FAF5EC 100%)' }}
+      ref={containerRef}
+    >
       {/* Background texture */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(107,122,80,0.06)_0%,transparent_60%)] pointer-events-none" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(242,101,34,0.05)_0%,transparent_60%)] pointer-events-none" />
