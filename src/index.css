@@ -9,8 +9,8 @@
 
   body {
     font-family: 'Inter', sans-serif;
-    background-color: #FAF7F0;
-    color: #1A1A1A;
+    background-color: #F5EFE0;
+    color: #2C3A20;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -70,11 +70,11 @@
 @layer utilities {
 
   .bg-blob-orange {
-    background: radial-gradient(circle at 30% 50%, rgba(242,101,34,0.12) 0%, transparent 70%);
+    background: radial-gradient(circle at 30% 50%, rgba(125,140,255,0.14) 0%, transparent 70%);
   }
 
   .bg-blob-olive {
-    background: radial-gradient(circle at 70% 50%, rgba(107,122,80,0.1) 0%, transparent 70%);
+    background: radial-gradient(circle at 70% 50%, rgba(142,155,114,0.12) 0%, transparent 70%);
   }
 
   .text-balance {
@@ -192,9 +192,9 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: #FAF7F2;
+  background: #F5EFE0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #7B9DE4;
+  background: #7D8CFF;
   border-radius: 3px;
 }
