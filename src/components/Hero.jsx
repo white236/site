@@ -28,7 +28,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden bg-cream pt-20">
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-cream">
       {/* Background blobs */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-orange opacity-[0.08] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-olive opacity-[0.08] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />

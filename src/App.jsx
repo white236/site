@@ -4,6 +4,7 @@ import MistralParticles from './components/MistralParticles'
 import ScrollPetals from './components/ScrollPetals'
 import NouvelleGeneration from './components/NouvelleGeneration'
 import Header from './components/Header'
+import StoryNav from './components/StoryNav'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Offer from './components/Offer'
@@ -38,20 +39,25 @@ export default function App() {
       <ScrollPetals />
       <CursorGlow />
       <Header />
-      <main>
-        <Hero />
-        <Problem />
-        <Offer />
-        <NouvelleGeneration />
-        <HowItWorks />
-        <Differentiators />
-        <Security />
-        <EspritVentoux />
-        <Zone />
-        <CTAFinal />
-        <ContactForm />
+      <StoryNav />
+      <main className="lg:pl-[220px] pt-14 lg:pt-0 pb-24 lg:pb-0">
+        <div id="ch-accueil"><Hero /></div>
+        <div id="ch-defi"><Problem /></div>
+        <div id="ch-offre"><Offer /></div>
+        <div id="ch-gen"><NouvelleGeneration /></div>
+        <div id="ch-fonctionnement"><HowItWorks /></div>
+        <div id="ch-garanties"><Differentiators /></div>
+        <div id="ch-securite"><Security /></div>
+        <div id="ch-esprit"><EspritVentoux /></div>
+        <div id="ch-territoire"><Zone /></div>
+        <div id="ch-contact">
+          <CTAFinal />
+          <ContactForm />
+        </div>
       </main>
-      <Footer />
+      <div className="lg:pl-[220px]">
+        <Footer />
+      </div>
     </div>
   )
 }
