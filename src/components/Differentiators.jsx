@@ -75,6 +75,16 @@ export default function Differentiators() {
             <p className="font-body text-lg text-noir/55 leading-relaxed">
               Le Lokal Ventoux, c'est une conciergerie nouvelle génération : de l'énergie, de la réactivité, et une gestion carrée. Suivi des ménages, photos avant/après, prestataires déclarés, contact direct et process clair en cas d'imprévu.
             </p>
+
+            <div className="mt-7 bg-cream rounded-3xl p-6 border border-cream-deeper inline-block">
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
+                <span className="font-heading font-bold text-noir text-sm">Vous restez propriétaire à 100 %</span>
+              </div>
+              <p className="text-noir/55 text-sm font-body">
+                Votre logement, votre compte, votre argent. On gère l'opérationnel, vous gardez le contrôle.
+              </p>
+            </div>
           </div>
 
           <div className="reveal reveal-delay-2">

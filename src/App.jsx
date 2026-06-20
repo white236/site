@@ -11,7 +11,6 @@ import NouvelleGeneration from './components/NouvelleGeneration'
 import HowItWorks from './components/HowItWorks'
 import MaisonVivante from './components/MaisonVivante'
 import Differentiators from './components/Differentiators'
-import Security from './components/Security'
 import EspritVentoux from './components/EspritVentoux'
 import Zone from './components/Zone'
 import CTAFinal from './components/CTAFinal'
@@ -47,7 +46,6 @@ export default function App() {
         <div id="ch-fonctionnement"><HowItWorks /></div>
         <MaisonVivante />
         <div id="ch-garanties"><Differentiators /></div>
-        <div id="ch-securite"><Security /></div>
         <div id="ch-esprit"><EspritVentoux /></div>
         <div id="ch-territoire"><Zone /></div>
         <div id="ch-contact">
