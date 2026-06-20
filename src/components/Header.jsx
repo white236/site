@@ -1,18 +1,28 @@
 import { useState } from 'react'
 import Logo from './Logo'
 
-export default function Header({ goTo, chapters }) {
+const links = [
+  { id: 'ch-accueil',        label: 'Accueil' },
+  { id: 'ch-defi',           label: 'Le défi' },
+  { id: 'ch-offre',          label: 'Nos services' },
+  { id: 'ch-fonctionnement', label: 'Fonctionnement' },
+  { id: 'ch-garanties',      label: 'Nos garanties' },
+  { id: 'ch-securite',       label: 'Sécurité' },
+  { id: 'ch-contact',        label: 'Contact' },
+]
+
+export default function Header() {
   const [open, setOpen] = useState(false)
 
-  function nav(index) {
-    goTo(index)
+  function go(id) {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
     setOpen(false)
   }
 
   return (
     <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-md border-b border-cream-deeper">
       <div className="flex items-center justify-between px-4 h-14">
-        <button onClick={() => nav(0)} className="flex-shrink-0 hover:opacity-75 transition-opacity">
+        <button onClick={() => go('ch-accueil')} className="flex-shrink-0 hover:opacity-75 transition-opacity">
           <Logo size="sm" />
         </button>
 
@@ -31,16 +41,15 @@ export default function Header({ goTo, chapters }) {
         </button>
       </div>
 
-      <div className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-[30rem] opacity-100' : 'max-h-0 opacity-0'}`}>
+      <div className={`overflow-hidden transition-all duration-300 ${open ? 'max-h-[28rem] opacity-100' : 'max-h-0 opacity-0'}`}>
         <div className="bg-cream/98 backdrop-blur-md px-4 pb-5 pt-2 flex flex-col gap-0.5 border-t border-cream-deeper">
-          {chapters.map((ch, i) => (
+          {links.map((link) => (
             <button
-              key={i}
-              onClick={() => nav(i)}
-              className="font-heading font-semibold text-noir/70 hover:text-brand-orange transition-colors py-2.5 text-base text-left flex items-center gap-2"
+              key={link.id}
+              onClick={() => go(link.id)}
+              className="font-heading font-semibold text-noir/70 hover:text-brand-orange transition-colors py-2.5 text-base text-left"
             >
-              <span className="text-brand-orange font-black text-xs w-5">{ch.number}</span>
-              {ch.label}
+              {link.label}
             </button>
           ))}
           <a
