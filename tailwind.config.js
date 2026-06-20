@@ -10,7 +10,7 @@ export default {
         cream: {
           DEFAULT: '#FAF7F0',
           dark: '#F0EAE2',
-          deeper: '#E2D8CE',
+          deeper: '#D8C7B0',
         },
         noir: {
           DEFAULT: '#111111',
@@ -30,6 +30,8 @@ export default {
           // Rose pierre — touche florale douce
           rose: '#D9A7A0',
           'rose-dark': '#C08880',
+          // Beige pierre — murs provençaux
+          beige: '#D8C7B0',
         },
       },
       fontFamily: {
