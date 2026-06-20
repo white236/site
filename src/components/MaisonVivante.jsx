@@ -53,7 +53,7 @@ function HouseIllustration({ stageIndex }) {
       viewBox="0 0 320 268"
       xmlns="http://www.w3.org/2000/svg"
       className="w-full"
-      style={{ filter: 'drop-shadow(0 16px 32px rgba(44,58,32,0.14))' }}
+      style={{ filter: 'drop-shadow(0 12px 24px rgba(44,58,32,0.14))' }}
     >
       <defs>
         <linearGradient id="mv-sky" x1="0" y1="0" x2="0" y2="1">
@@ -66,10 +66,9 @@ function HouseIllustration({ stageIndex }) {
         </linearGradient>
       </defs>
 
-      {/* Sky */}
       <rect width="320" height="268" fill="url(#mv-sky)" />
 
-      {/* Mont Ventoux silhouette */}
+      {/* Mont Ventoux */}
       <polygon points="160,28 248,128 72,128" fill="#C8B8A0" opacity="0.28" />
       <polygon points="160,36 218,128 102,128" fill="#D8C8B0" opacity="0.18" />
       <polygon points="160,28 172,50 148,50" fill="white" opacity="0.55" />
@@ -78,7 +77,7 @@ function HouseIllustration({ stageIndex }) {
       <rect x="0" y="212" width="320" height="56" fill="url(#mv-ground)" />
       <rect x="0" y="212" width="320" height="5" fill="#C0B090" />
 
-      {/* Lavender plants */}
+      {/* Lavender */}
       {[58, 70, 80, 242, 254, 264].map((x, i) => (
         <g key={i}>
           <line x1={x} y1="220" x2={x} y2="212" stroke="#7A8060" strokeWidth="1.5" />
@@ -86,10 +85,8 @@ function HouseIllustration({ stageIndex }) {
         </g>
       ))}
 
-      {/* House wall */}
+      {/* Wall */}
       <rect x="80" y="128" width="160" height="88" fill="#D4C0A0" />
-
-      {/* Stone texture */}
       <line x1="80" y1="148" x2="240" y2="148" stroke="#C0AC88" strokeWidth="0.8" />
       <line x1="80" y1="168" x2="240" y2="168" stroke="#C0AC88" strokeWidth="0.8" />
       <line x1="80" y1="188" x2="240" y2="188" stroke="#C0AC88" strokeWidth="0.8" />
@@ -109,7 +106,7 @@ function HouseIllustration({ stageIndex }) {
       <polygon points="66,132 160,65 254,132" fill="#000" opacity="0.12" />
       <polyline points="66,132 160,65 254,132" fill="none" stroke="#7A4428" strokeWidth="2" />
 
-      {/* Left shutter + window */}
+      {/* Left window */}
       <rect x="88" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
       <rect x="97" y="142" width="52" height="46" fill="#8B7050" rx="2" />
       <rect x="101" y="146" width="44" height="38" rx="1" fill={wc} style={{ transition: 'fill 1s ease' }} />
@@ -117,7 +114,7 @@ function HouseIllustration({ stageIndex }) {
       <line x1="101" y1="165" x2="145" y2="165" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
       <rect x="152" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
 
-      {/* Right shutter + window */}
+      {/* Right window */}
       <rect x="171" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
       <rect x="180" y="142" width="52" height="46" fill="#8B7050" rx="2" />
       <rect x="184" y="146" width="44" height="38" rx="1" fill={wc} style={{ transition: 'fill 1s ease' }} />
@@ -169,12 +166,62 @@ function HouseIllustration({ stageIndex }) {
   )
 }
 
+function StageDots({ current }) {
+  return (
+    <div className="flex justify-center gap-2">
+      {stages.map((_, i) => (
+        <div
+          key={i}
+          className={`rounded-full transition-all duration-500 ${
+            i === current  ? 'w-7 h-[7px] bg-brand-orange'
+            : i < current ? 'w-[7px] h-[7px] bg-brand-orange/35'
+            : 'w-[7px] h-[7px] bg-noir/12'
+          }`}
+        />
+      ))}
+    </div>
+  )
+}
+
+function StageCard({ s, i, active }) {
+  return (
+    <div className={`w-full rounded-3xl border-2 transition-all duration-500 ${
+      i === active
+        ? 'bg-white border-brand-orange/25 shadow-[0_12px_40px_rgba(125,140,255,0.13)] -translate-y-1'
+        : 'bg-cream-dark border-cream-deeper opacity-55'
+    }`}>
+      <div className="p-7 sm:p-9">
+        <div className="flex items-center gap-3 mb-5">
+          <span className="font-heading font-black text-noir/10 leading-none" style={{ fontSize: 52 }}>
+            {s.number}
+          </span>
+          <span style={{ fontSize: 36 }}>{s.icon}</span>
+        </div>
+        <h3 className="font-heading font-bold text-noir text-xl sm:text-2xl mb-3 leading-snug">
+          {s.title}
+        </h3>
+        <p className="font-body text-noir/60 text-base sm:text-lg leading-relaxed">
+          {s.desc}
+        </p>
+        {i === active && (
+          <div className="mt-5 inline-flex items-center gap-2 bg-brand-orange/10 text-brand-orange font-heading font-bold text-xs px-3 py-1.5 rounded-full">
+            <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+            En cours
+          </div>
+        )}
+      </div>
+    </div>
+  )
+}
+
 export default function MaisonVivante() {
   const [stage, setStage] = useState(0)
-  const stageRefs = useRef([])
+  // Separate ref arrays so display:none doesn't confuse IntersectionObserver
+  const desktopRefs = useRef([])
+  const mobileRefs  = useRef([])
 
   useEffect(() => {
-    const observers = stageRefs.current.map((el, i) => {
+    const observe = (refs) => refs.map((el, i) => {
       if (!el) return null
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setStage(i) },
@@ -183,11 +230,13 @@ export default function MaisonVivante() {
       obs.observe(el)
       return obs
     })
-    return () => observers.forEach(o => o?.disconnect())
+    const d = observe(desktopRefs.current)
+    const m = observe(mobileRefs.current)
+    return () => { d.forEach(o => o?.disconnect()); m.forEach(o => o?.disconnect()) }
   }, [])
 
   return (
-    // NO overflow:hidden here — it would break position:sticky on the left panel
+    // NO overflow:hidden — would break position:sticky
     <section className="bg-cream relative">
 
       {/* Header */}
@@ -204,34 +253,12 @@ export default function MaisonVivante() {
         </p>
       </div>
 
-      {/*
-        Desktop sticky scroll:
-        - Left panel: self-start + sticky top-16  →  sticks as user scrolls right column
-        - Right column: 6 × min-h-[82vh]          →  determines total section height
-        - No overflow:hidden anywhere              →  sticky works correctly
-      */}
+      {/* ── Desktop: sticky left panel + scrollable right cards ── */}
       <div className="hidden lg:flex max-w-6xl mx-auto px-4 sm:px-6 pb-24">
-
-        {/* Left sticky panel */}
         <div className="w-[46%] pr-14 self-start sticky top-16">
           <HouseIllustration stageIndex={stage} />
-
-          {/* Progress dots */}
-          <div className="flex justify-center gap-2 mt-6">
-            {stages.map((_, i) => (
-              <div
-                key={i}
-                className={`rounded-full transition-all duration-500 ${
-                  i === stage  ? 'w-7 h-[7px] bg-brand-orange'
-                  : i < stage ? 'w-[7px] h-[7px] bg-brand-orange/35'
-                  : 'w-[7px] h-[7px] bg-noir/12'
-                }`}
-              />
-            ))}
-          </div>
-
-          {/* Current stage label */}
-          <div key={`lbl-${stage}`} className="count-flip-in text-center mt-4">
+          <div className="mt-6"><StageDots current={stage} /></div>
+          <div key={`dlbl-${stage}`} className="count-flip-in text-center mt-4">
             <div className="font-heading font-black text-brand-orange/60 text-xs tracking-[0.2em] uppercase">
               Étape {stages[stage].number} sur 06
             </div>
@@ -240,64 +267,51 @@ export default function MaisonVivante() {
             </div>
           </div>
         </div>
-
-        {/* Right scrollable stage cards */}
         <div className="w-[54%]">
           {stages.map((s, i) => (
-            <div
-              key={i}
-              ref={el => { stageRefs.current[i] = el }}
-              className="min-h-[82vh] flex items-center"
-            >
-              <div className={`w-full rounded-3xl p-9 border-2 transition-all duration-500 ${
-                i === stage
-                  ? 'bg-white border-brand-orange/25 shadow-[0_12px_48px_rgba(125,140,255,0.13)] -translate-y-1.5'
-                  : 'bg-cream-dark border-cream-deeper opacity-55'
-              }`}>
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="font-heading font-black text-noir/10 leading-none" style={{ fontSize: 56 }}>
-                    {s.number}
-                  </span>
-                  <span style={{ fontSize: 38 }}>{s.icon}</span>
-                </div>
-                <h3 className="font-heading font-bold text-noir text-2xl mb-4 leading-snug">
-                  {s.title}
-                </h3>
-                <p className="font-body text-noir/60 text-lg leading-relaxed">
-                  {s.desc}
-                </p>
-                {i === stage && (
-                  <div className="mt-6 inline-flex items-center gap-2 bg-brand-orange/10 text-brand-orange font-heading font-bold text-xs px-3 py-1.5 rounded-full">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-                    En cours
-                  </div>
-                )}
-              </div>
+            <div key={i} ref={el => { desktopRefs.current[i] = el }} className="min-h-[82vh] flex items-center">
+              <StageCard s={s} i={i} active={stage} />
             </div>
           ))}
         </div>
       </div>
 
-      {/* Mobile: vertical timeline */}
-      <div className="lg:hidden px-4 sm:px-6 pb-20 max-w-lg mx-auto">
-        {stages.map((s, i) => (
-          <div key={i} className="flex gap-4">
-            <div className="flex flex-col items-center flex-shrink-0">
-              <div className="w-12 h-12 rounded-2xl bg-brand-orange/10 border border-brand-orange/25 flex items-center justify-center font-heading font-black text-brand-orange text-sm">
-                {s.number}
-              </div>
-              {i < stages.length - 1 && (
-                <div className="w-px bg-cream-deeper flex-1 mt-2 min-h-[36px]" />
-              )}
+      {/* ── Mobile: sticky house panel + scrollable cards ── */}
+      <div className="lg:hidden">
+
+        {/* Sticky house — top-14 accounts for the fixed mobile header */}
+        <div
+          className="sticky top-14 z-20 bg-cream pb-4 pt-3"
+          style={{ boxShadow: '0 4px 20px rgba(44,58,32,0.08)' }}
+        >
+          <div className="w-[200px] mx-auto">
+            <HouseIllustration stageIndex={stage} />
+          </div>
+          <div className="mt-3"><StageDots current={stage} /></div>
+          <div key={`mlbl-${stage}`} className="count-flip-in text-center mt-2">
+            <div className="font-heading font-black text-brand-orange/60 text-[10px] tracking-[0.18em] uppercase">
+              Étape {stages[stage].number} sur 06
             </div>
-            <div className="pt-1 pb-8">
-              <div className="mb-2" style={{ fontSize: 32 }}>{s.icon}</div>
-              <h3 className="font-heading font-bold text-noir text-xl mb-2 leading-snug">{s.title}</h3>
-              <p className="font-body text-noir/60 text-base leading-relaxed">{s.desc}</p>
+            <div className="font-heading font-bold text-noir text-sm mt-0.5">
+              {stages[stage].icon} {stages[stage].title}
             </div>
           </div>
-        ))}
+        </div>
+
+        {/* Stage cards — each tall enough to scroll cleanly into the observer zone */}
+        <div className="px-4 pb-16 pt-2">
+          {stages.map((s, i) => (
+            <div
+              key={i}
+              ref={el => { mobileRefs.current[i] = el }}
+              className="min-h-[65vh] flex items-center py-4"
+            >
+              <StageCard s={s} i={i} active={stage} />
+            </div>
+          ))}
+        </div>
       </div>
+
     </section>
   )
 }
