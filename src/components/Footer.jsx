@@ -40,6 +40,17 @@ export default function Footer() {
                 06 20 71 19 75
               </a>
               <a
+                href="mailto:lelokalventouxconsciergerie@gmail.com"
+                className="flex items-center gap-3 text-white/60 hover:text-brand-orange transition-colors font-body text-sm group"
+              >
+                <div className="w-8 h-8 bg-white/5 rounded-xl flex items-center justify-center group-hover:bg-brand-orange/20 transition-colors">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                lelokalventouxconsciergerie@gmail.com
+              </a>
+              <a
                 href="https://wa.me/33620711975"
                 target="_blank"
                 rel="noopener noreferrer"
