@@ -85,6 +85,27 @@ export default function Footer() {
           </div>
         </div>
 
+        {/* Zone strip */}
+        <div className="border-t border-white/10 pt-7 pb-6">
+          <p className="text-white/28 font-body text-[11px] uppercase tracking-widest text-center mb-3">
+            Zone d'intervention · Autour du Mont Ventoux
+          </p>
+          <div className="flex flex-wrap justify-center gap-x-4 gap-y-1.5">
+            {[
+              'Bédoin', 'Malaucène', 'Mazan', 'Caromb', 'Mormoiron',
+              'Carpentras', 'Venasque', 'Aubignan', 'Pernes-les-Fontaines',
+              'Beaumes-de-Venise', "L'Isle-sur-la-Sorgue", 'Crillon-le-Brave',
+            ].map((v) => (
+              <span key={v} className="font-body text-xs text-white/35">
+                {v}
+              </span>
+            ))}
+            <span className="font-body text-xs text-brand-orange/65 font-medium">
+              … et bien d'autres
+            </span>
+          </div>
+        </div>
+
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-white/30 font-body text-xs">
