@@ -10,6 +10,7 @@ import Offer from './components/Offer'
 import EspritVentoux from './components/EspritVentoux'
 import HowItWorks from './components/HowItWorks'
 import Differentiators from './components/Differentiators'
+import Security from './components/Security'
 import Zone from './components/Zone'
 import CTAFinal from './components/CTAFinal'
 import ContactForm from './components/ContactForm'
@@ -44,6 +45,7 @@ export default function App() {
         <NouvelleGeneration />
         <HowItWorks />
         <Differentiators />
+        <Security />
         <EspritVentoux />
         <Zone />
         <CTAFinal />

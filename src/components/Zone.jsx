@@ -78,7 +78,11 @@ export default function Zone() {
             ))}
           </div>
 
-          <div className="mt-8 pt-6 border-t border-cream-deeper text-center reveal">
+          <p className="mt-4 text-center text-noir/38 font-body text-sm italic">
+            … et bien d'autres villages autour du Ventoux.
+          </p>
+
+          <div className="mt-6 pt-6 border-t border-cream-deeper text-center reveal">
             <p className="text-noir/45 font-body text-sm">
               Autre village autour du Ventoux ?{' '}
               <a href="#contact" className="text-brand-orange font-heading font-bold hover:underline">

@@ -17,10 +17,10 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-start gap-4 mb-5">
-              <div className="bg-white/5 rounded-2xl p-4 inline-block flex-shrink-0">
-                <Logo size="md" />
+              <div className="bg-white/10 rounded-2xl p-4 inline-block flex-shrink-0">
+                <Logo size="md" className="brightness-0 invert" />
               </div>
-              <div className="hidden sm:block w-28 opacity-[0.18] flex-shrink-0 mt-1">
+              <div className="hidden sm:block w-32 opacity-50 flex-shrink-0 mt-1">
                 <ProvençalHouse className="w-full h-auto" />
               </div>
             </div>

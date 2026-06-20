@@ -93,7 +93,7 @@ export default function NouvelleGeneration() {
         {/* Quote */}
         <div className="mt-16 text-center reveal">
           <p className="font-heading font-bold text-2xl sm:text-3xl text-brand-orange/70 italic leading-relaxed">
-            "Moins de blabla, plus de terrain."
+            "Plus de proximité, meilleure satisfaction."
           </p>
           <p className="mt-4 font-body text-white/35 text-sm tracking-wide">
             Victor · Le Lokal Ventoux · Autour du Mont Ventoux
