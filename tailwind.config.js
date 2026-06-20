@@ -8,23 +8,28 @@ export default {
     extend: {
       colors: {
         cream: {
-          DEFAULT: '#FAF7F2',
-          dark: '#F0E8D8',
-          deeper: '#E8DCC8',
+          DEFAULT: '#FAF7F0',
+          dark: '#F0EAE2',
+          deeper: '#E2D8CE',
         },
         noir: {
-          DEFAULT: '#1A1A1A',
-          light: '#2D2D2D',
+          DEFAULT: '#111111',
+          light: '#222222',
         },
         brand: {
-          // Bleu lavande remplace l'orange partout (les classes tailwind gardent le même nom)
-          orange: '#7B9DE4',
-          'orange-light': '#A8C2EE',
-          'orange-dark': '#5878C0',
-          olive: '#6B7A50',
-          'olive-light': '#8FA06B',
-          'olive-dark': '#4A5537',
-          jaune: '#E8DEBC',  // sable chaud, accent discret
+          // Bleu lavande forte — jeune et vive
+          orange: '#7D8CFF',
+          'orange-light': '#A8B0FF',
+          'orange-dark': '#5060DD',
+          // Vert olive clair — naturel, provençal
+          olive: '#8E9B72',
+          'olive-light': '#A8B88A',
+          'olive-dark': '#6A7550',
+          // Jaune soleil — chaud, été
+          jaune: '#F6D779',
+          // Rose pierre — touche florale douce
+          rose: '#D9A7A0',
+          'rose-dark': '#C08880',
         },
       },
       fontFamily: {
@@ -57,10 +62,10 @@ export default {
         },
       },
       boxShadow: {
-        'card': '0 4px 24px rgba(26,26,26,0.07)',
-        'card-hover': '0 10px 44px rgba(26,26,26,0.13)',
-        'orange': '0 4px 24px rgba(123,157,228,0.35)',
-        'orange-lg': '0 8px 40px rgba(123,157,228,0.45)',
+        'card': '0 4px 24px rgba(17,17,17,0.07)',
+        'card-hover': '0 10px 44px rgba(17,17,17,0.13)',
+        'orange': '0 4px 24px rgba(125,140,255,0.35)',
+        'orange-lg': '0 8px 40px rgba(125,140,255,0.45)',
       },
     },
   },

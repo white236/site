@@ -1,4 +1,5 @@
 import Logo from './Logo'
+import ProvençalHouse from './ProvençalHouse'
 
 const navLinks = [
   { href: '#offre', label: 'Notre offre' },
@@ -15,8 +16,13 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="lg:col-span-2">
-            <div className="bg-white/5 rounded-2xl p-4 inline-block mb-5">
-              <Logo size="md" />
+            <div className="flex items-start gap-4 mb-5">
+              <div className="bg-white/5 rounded-2xl p-4 inline-block flex-shrink-0">
+                <Logo size="md" />
+              </div>
+              <div className="hidden sm:block w-28 opacity-[0.18] flex-shrink-0 mt-1">
+                <ProvençalHouse className="w-full h-auto" />
+              </div>
             </div>
             <p className="text-white/50 font-body text-sm leading-relaxed max-w-xs">
               Conciergerie courte durée nouvelle génération, au pied du Mont Ventoux. Je gère, vous profitez.

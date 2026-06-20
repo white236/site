@@ -3,16 +3,29 @@ import { useEffect, useRef } from 'react'
 
 const POOL_SIZE = 7
 
-const PetalIcon = () => (
-  <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill="#9BAFF2" opacity="0.92" />
-    <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill="#9BAFF2" opacity="0.85" transform="rotate(72 12 12)" />
-    <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill="#9BAFF2" opacity="0.85" transform="rotate(144 12 12)" />
-    <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill="#9BAFF2" opacity="0.85" transform="rotate(216 12 12)" />
-    <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill="#9BAFF2" opacity="0.85" transform="rotate(288 12 12)" />
-    <circle  cx="12" cy="12" r="2.5"             fill="#E8DEBC" />
-  </svg>
-)
+// Alternating lavande / rose petals
+const PETAL_COLORS = [
+  { fill: '#A8B0FF', center: '#E8DEBC' },
+  { fill: '#D9A7A0', center: '#F0D8C8' },
+  { fill: '#7D8CFF', center: '#E8DEBC' },
+  { fill: '#D9A7A0', center: '#F0D8C8' },
+  { fill: '#A8B0FF', center: '#E8DEBC' },
+  { fill: '#C08880', center: '#F0D8C8' },
+  { fill: '#7D8CFF', center: '#E8DEBC' },
+]
+
+function PetalSVG({ fill, center }) {
+  return (
+    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill={fill} opacity="0.92" />
+      <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill={fill} opacity="0.85" transform="rotate(72 12 12)" />
+      <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill={fill} opacity="0.85" transform="rotate(144 12 12)" />
+      <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill={fill} opacity="0.85" transform="rotate(216 12 12)" />
+      <ellipse cx="12" cy="4.5" rx="2.8" ry="5"   fill={fill} opacity="0.85" transform="rotate(288 12 12)" />
+      <circle  cx="12" cy="12" r="2.5"             fill={center} />
+    </svg>
+  )
+}
 
 export default function ScrollPetals() {
   const poolRef = useRef([])
@@ -81,14 +94,14 @@ export default function ScrollPetals() {
       style={{ zIndex: 4 }}
       aria-hidden="true"
     >
-      {Array.from({ length: POOL_SIZE }).map((_, i) => (
+      {PETAL_COLORS.map((colors, i) => (
         <div
           key={i}
           ref={el => { poolRef.current[i] = el }}
           className="absolute"
           style={{ opacity: 0, animation: 'none' }}
         >
-          <PetalIcon />
+          <PetalSVG fill={colors.fill} center={colors.center} />
         </div>
       ))}
     </div>

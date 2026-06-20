@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 import FloatingParticles from './FloatingParticles'
 import WindyVines from './WindyVines'
+import ProvençalHouse from './ProvençalHouse'
 
 const cities = [
   { name: 'Bédoin', note: 'Porte du Ventoux' },
@@ -47,7 +48,11 @@ export default function Zone() {
           </p>
         </div>
 
-        <div className="bg-white rounded-4xl p-7 sm:p-10 shadow-card border border-cream-deeper">
+        <div className="bg-white rounded-4xl p-7 sm:p-10 shadow-card border border-cream-deeper relative overflow-hidden">
+          {/* Watermark illustration */}
+          <div className="absolute right-0 bottom-0 w-48 opacity-[0.07] pointer-events-none hidden lg:block translate-x-8 translate-y-4">
+            <ProvençalHouse className="w-full h-auto" />
+          </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {cities.map((city, i) => (
               <div

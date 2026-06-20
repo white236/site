@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import Logo from './Logo'
+import ProvençalHouse from './ProvençalHouse'
 import FloatingParticles from './FloatingParticles'
 
 const badges = [
@@ -94,10 +94,10 @@ export default function Hero() {
             </p>
           </div>
 
-          {/* Right: logo + badges */}
+          {/* Right: house illustration + badges */}
           <div className="flex flex-col items-center">
-            <div className="bg-white rounded-4xl p-10 shadow-card-hover border border-cream-deeper">
-              <Logo size="2xl" />
+            <div className="bg-white rounded-4xl px-6 pt-6 pb-4 shadow-card-hover border border-cream-deeper w-full max-w-sm">
+              <ProvençalHouse className="w-full h-auto" />
             </div>
 
             <div className="grid grid-cols-2 gap-3 mt-6 w-full max-w-sm">
