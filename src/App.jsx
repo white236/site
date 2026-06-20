@@ -38,7 +38,7 @@ export default function App() {
       <CursorGlow />
       <Header />
       <SectionNav />
-      <main className="pt-14 lg:pt-0">
+      <main className="pt-14 lg:pt-16">
         <div id="ch-accueil"><Hero /></div>
         <div id="ch-defi"><Problem /></div>
         <div id="ch-offre"><Offer /></div>

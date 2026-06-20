@@ -7,7 +7,6 @@ const sections = [
   { id: 'ch-gen',            label: 'Nouvelle génération' },
   { id: 'ch-fonctionnement', label: 'Fonctionnement'      },
   { id: 'ch-garanties',      label: 'Nos garanties'       },
-  { id: 'ch-securite',       label: 'Sécurité'            },
   { id: 'ch-esprit',         label: "L'esprit du Ventoux" },
   { id: 'ch-territoire',     label: 'Notre territoire'    },
   { id: 'ch-contact',        label: 'Contact'             },
