@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 import FloatingParticles from './FloatingParticles'
 
@@ -31,6 +31,7 @@ const steps = [
 
 export default function HowItWorks() {
   const containerRef = useRef(null)
+  const [activeStep, setActiveStep] = useState(0)
   useRevealChildren(containerRef)
 
   return (
@@ -52,24 +53,88 @@ export default function HowItWorks() {
           </p>
         </div>
 
-        {/* Desktop: horizontal timeline */}
-        <div className="hidden lg:flex items-start gap-0 relative">
-          <div className="absolute top-8 left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-brand-orange/30 to-transparent" />
+        {/* Desktop: horizontal interactive timeline */}
+        <div className="hidden lg:block">
+          {/* Timeline row */}
+          <div className="flex items-start gap-0 relative">
+            {/* Base track */}
+            <div className="absolute top-8 left-[12.5%] right-[12.5%] h-px bg-cream-deeper" />
+            {/* Orange fill up to active step */}
+            <div
+              className="absolute top-8 h-px bg-brand-orange transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)]"
+              style={{
+                left: '12.5%',
+                width: `calc(${(activeStep / (steps.length - 1)) * 75}%)`,
+              }}
+            />
 
-          {steps.map((step, i) => (
-            <div key={i} className={`reveal reveal-delay-${i + 1} flex-1 flex flex-col items-center text-center px-5`}>
-              <div className="relative z-10 w-16 h-16 rounded-full bg-white border-2 border-cream-deeper shadow-card flex items-center justify-center text-2xl mb-5 transition-all duration-300 hover:border-brand-orange hover:shadow-orange hover:-translate-y-1">
-                <span>{step.icon}</span>
-                <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-brand-orange text-white font-heading font-black text-xs flex items-center justify-center">
-                  {i + 1}
-                </span>
+            {steps.map((step, i) => {
+              const isActive = i === activeStep
+              const isPast   = i < activeStep
+              return (
+                <button
+                  key={i}
+                  onClick={() => setActiveStep(i)}
+                  className={`reveal reveal-delay-${i + 1} flex-1 flex flex-col items-center text-center px-5 group focus:outline-none transition-all duration-300 ${isActive ? '-translate-y-2' : 'hover:-translate-y-1'}`}
+                >
+                  <div className={`relative z-10 w-16 h-16 rounded-full flex items-center justify-center text-2xl mb-5 transition-all duration-300 ${
+                    isActive
+                      ? 'bg-brand-orange border-2 border-brand-orange shadow-orange scale-110'
+                      : isPast
+                      ? 'bg-white border-2 border-brand-orange/50 shadow-card'
+                      : 'bg-white border-2 border-cream-deeper shadow-card group-hover:border-brand-orange/40 group-hover:shadow-card-hover'
+                  }`}>
+                    <span className={isActive ? 'grayscale-0' : ''}>{step.icon}</span>
+                    <span className={`absolute -top-2 -right-2 w-6 h-6 rounded-full font-heading font-black text-xs flex items-center justify-center transition-all duration-300 ${
+                      isActive || isPast ? 'bg-brand-orange text-white' : 'bg-cream-deeper text-noir/40'
+                    }`}>
+                      {i + 1}
+                    </span>
+                  </div>
+                  <h3 className={`font-heading font-bold text-base mb-2 leading-snug transition-colors duration-300 ${isActive ? 'text-brand-orange' : 'text-noir group-hover:text-brand-orange/70'}`}>
+                    {step.title}
+                  </h3>
+                  <p className={`font-body text-sm leading-relaxed transition-all duration-300 ${isActive ? 'text-noir/70' : 'text-noir/40 group-hover:text-noir/55'}`}>
+                    {step.desc}
+                  </p>
+                </button>
+              )
+            })}
+          </div>
+
+          {/* Active step detail panel */}
+          <div className="mt-8 reveal">
+            <div
+              key={activeStep}
+              className="bg-noir rounded-3xl p-6 flex items-start gap-5 count-flip-in"
+            >
+              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-2xl flex-shrink-0">
+                {steps[activeStep].icon}
               </div>
-              <h3 className="font-heading font-bold text-noir text-base mb-2 leading-snug">
-                {step.title}
-              </h3>
-              <p className="text-noir/48 font-body text-sm leading-relaxed">{step.desc}</p>
+              <div>
+                <div className="text-brand-orange font-heading font-black text-xs tracking-widest uppercase mb-1">
+                  Étape {steps[activeStep].number}
+                </div>
+                <h4 className="text-white font-heading font-bold text-lg mb-1.5">
+                  {steps[activeStep].title}
+                </h4>
+                <p className="text-white/60 font-body text-sm leading-relaxed max-w-xl">
+                  {steps[activeStep].desc}
+                </p>
+              </div>
+              <div className="ml-auto flex gap-2 flex-shrink-0">
+                {steps.map((_, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveStep(i)}
+                    className={`rounded-full transition-all duration-300 ${
+                      i === activeStep ? 'w-6 h-2 bg-brand-orange' : 'w-2 h-2 bg-white/20 hover:bg-white/45'
+                    }`}
+                  />
+                ))}
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
         {/* Mobile: vertical */}

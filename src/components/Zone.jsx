@@ -1,8 +1,10 @@
-import { useRef } from 'react'
+import { useRef, Suspense, lazy } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 import FloatingParticles from './FloatingParticles'
 import WindyVines from './WindyVines'
 import ProvençalHouse from './ProvençalHouse'
+
+const InteractiveMap = lazy(() => import('./InteractiveMap'))
 
 const cities = [
   { name: 'Bédoin', note: 'Porte du Ventoux' },
@@ -45,6 +47,18 @@ export default function Zone() {
           </h2>
           <p className="mt-4 text-noir/50 text-lg max-w-xl mx-auto font-body">
             Le Lokal Ventoux accompagne les propriétaires à Bédoin, Malaucène, Mazan, Caromb et dans tous les villages autour du Ventoux.
+          </p>
+        </div>
+
+        {/* Interactive map */}
+        <div className="mb-6 reveal">
+          <Suspense fallback={
+            <div className="rounded-3xl bg-cream border border-cream-deeper animate-pulse" style={{ height: 420 }} />
+          }>
+            <InteractiveMap />
+          </Suspense>
+          <p className="text-center text-noir/35 font-body text-xs mt-2.5 italic">
+            Cliquez sur un village pour en savoir plus · Zoom avec les boutons ↗
           </p>
         </div>
 
