@@ -44,28 +44,6 @@ export default function SectionNav() {
 
   return (
     <>
-      {/* ── Desktop: ghost chapter counter (top-right) ── */}
-      <div
-        className="hidden lg:block fixed top-7 right-7 z-50 text-right pointer-events-none select-none"
-        aria-hidden="true"
-      >
-        <div key={active} className="count-flip-in">
-          {/* Giant ghost number */}
-          <div className="font-heading font-black leading-none text-noir/[0.05]"
-               style={{ fontSize: 72 }}>
-            {sections[active].number}
-          </div>
-          {/* Section name in orange */}
-          <div className="-mt-2 text-brand-orange font-heading font-bold text-[11px] tracking-[0.2em] uppercase">
-            {sections[active].label}
-          </div>
-          {/* Total count */}
-          <div className="mt-0.5 text-noir/18 font-heading font-semibold text-[10px] tracking-widest">
-            / {String(sections.length).padStart(2, '0')}
-          </div>
-        </div>
-      </div>
-
       {/* ── Desktop: right-side dot rail ── */}
       <nav
         className="hidden lg:flex fixed right-6 top-1/2 -translate-y-1/2 z-50 flex-col items-center gap-[14px]"

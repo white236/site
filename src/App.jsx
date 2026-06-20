@@ -8,7 +8,6 @@ import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Offer from './components/Offer'
 import NouvelleGeneration from './components/NouvelleGeneration'
-import MaisonVivante from './components/MaisonVivante'
 import HowItWorks from './components/HowItWorks'
 import Differentiators from './components/Differentiators'
 import Security from './components/Security'
@@ -45,7 +44,6 @@ export default function App() {
         <div id="ch-offre"><Offer /></div>
         <div id="ch-gen"><NouvelleGeneration /></div>
         <div id="ch-fonctionnement"><HowItWorks /></div>
-        <MaisonVivante />
         <div id="ch-garanties"><Differentiators /></div>
         <div id="ch-securite"><Security /></div>
         <div id="ch-esprit"><EspritVentoux /></div>

@@ -42,7 +42,7 @@ export default function Differentiators() {
   return (
     <section
       className="py-20 sm:py-28 relative overflow-hidden"
-      style={{ background: 'linear-gradient(150deg,#FAF5EC 0%,rgba(168,128,205,.07) 35%,rgba(188,148,215,.10) 55%,rgba(168,128,205,.06) 75%,#FAF5EC 100%)' }}
+      style={{ background: 'linear-gradient(160deg, #EDE4F5 0%, #E8DCF2 40%, #EBE0F4 70%, #EDE4F5 100%)' }}
       ref={containerRef}
     >
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/[0.05] rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/4" />

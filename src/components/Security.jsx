@@ -42,7 +42,7 @@ export default function Security() {
     <section
       id="securite"
       className="py-20 sm:py-28 relative overflow-hidden"
-      style={{ background: 'linear-gradient(150deg,#FAF5EC 0%,rgba(168,128,205,.07) 35%,rgba(188,148,215,.10) 55%,rgba(168,128,205,.06) 75%,#FAF5EC 100%)' }}
+      style={{ background: 'linear-gradient(160deg, #EDE4F5 0%, #E8DCF2 40%, #EBE0F4 70%, #EDE4F5 100%)' }}
       ref={containerRef}
     >
       {/* Background texture */}
