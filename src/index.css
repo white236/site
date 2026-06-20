@@ -187,6 +187,24 @@
   }
 }
 
+/* Section nav — dot pulse ring */
+@keyframes dotPulseRing {
+  0%   { transform: scale(1);   opacity: 0.75; }
+  100% { transform: scale(3);   opacity: 0; }
+}
+.dot-pulse-ring {
+  animation: dotPulseRing 1.9s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+/* Section nav — chapter label / number flip-in */
+@keyframes countFlipIn {
+  from { opacity: 0; transform: translateY(7px); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0);   filter: blur(0); }
+}
+.count-flip-in {
+  animation: countFlipIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
 /* Chapter transition animations */
 @keyframes chapterEnter {
   from {
