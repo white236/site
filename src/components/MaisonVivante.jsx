@@ -65,27 +65,18 @@ function HouseIllustration({ stageIndex }) {
           <stop offset="100%" stopColor="#C8BA98" />
         </linearGradient>
       </defs>
-
       <rect width="320" height="268" fill="url(#mv-sky)" />
-
-      {/* Mont Ventoux */}
       <polygon points="160,28 248,128 72,128" fill="#C8B8A0" opacity="0.28" />
       <polygon points="160,36 218,128 102,128" fill="#D8C8B0" opacity="0.18" />
       <polygon points="160,28 172,50 148,50" fill="white" opacity="0.55" />
-
-      {/* Ground */}
       <rect x="0" y="212" width="320" height="56" fill="url(#mv-ground)" />
       <rect x="0" y="212" width="320" height="5" fill="#C0B090" />
-
-      {/* Lavender */}
       {[58, 70, 80, 242, 254, 264].map((x, i) => (
         <g key={i}>
           <line x1={x} y1="220" x2={x} y2="212" stroke="#7A8060" strokeWidth="1.5" />
           <ellipse cx={x} cy="212" rx="5" ry="9" fill="#9B89C4" opacity="0.65" />
         </g>
       ))}
-
-      {/* Wall */}
       <rect x="80" y="128" width="160" height="88" fill="#D4C0A0" />
       <line x1="80" y1="148" x2="240" y2="148" stroke="#C0AC88" strokeWidth="0.8" />
       <line x1="80" y1="168" x2="240" y2="168" stroke="#C0AC88" strokeWidth="0.8" />
@@ -96,33 +87,23 @@ function HouseIllustration({ stageIndex }) {
       {[122, 198].map((x, i) => (
         <line key={i} x1={x} y1="168" x2={x} y2="188" stroke="#C0AC88" strokeWidth="0.6" />
       ))}
-
-      {/* Chimney */}
       <rect x="194" y="78" width="16" height="44" fill="#C4B09A" />
       <rect x="191" y="76" width="22" height="7" fill="#B0A080" rx="1" />
-
-      {/* Roof */}
       <polygon points="66,132 160,65 254,132" fill="#9A6B45" />
       <polygon points="66,132 160,65 254,132" fill="#000" opacity="0.12" />
       <polyline points="66,132 160,65 254,132" fill="none" stroke="#7A4428" strokeWidth="2" />
-
-      {/* Left window */}
       <rect x="88" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
       <rect x="97" y="142" width="52" height="46" fill="#8B7050" rx="2" />
       <rect x="101" y="146" width="44" height="38" rx="1" fill={wc} style={{ transition: 'fill 1s ease' }} />
       <line x1="123" y1="146" x2="123" y2="184" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
       <line x1="101" y1="165" x2="145" y2="165" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
       <rect x="152" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
-
-      {/* Right window */}
       <rect x="171" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
       <rect x="180" y="142" width="52" height="46" fill="#8B7050" rx="2" />
       <rect x="184" y="146" width="44" height="38" rx="1" fill={wc} style={{ transition: 'fill 1s ease' }} />
       <line x1="206" y1="146" x2="206" y2="184" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
       <line x1="184" y1="165" x2="228" y2="165" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
       <rect x="235" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
-
-      {/* Door */}
       <rect x="139" y="184" width="42" height="36" fill="#7A5838" rx="3 3 0 0" />
       <rect x="143" y="188" width="14" height="11" fill="none" stroke="#5A3A1A" strokeWidth="1" rx="1" />
       <rect x="163" y="188" width="14" height="11" fill="none" stroke="#5A3A1A" strokeWidth="1" rx="1" />
@@ -130,8 +111,6 @@ function HouseIllustration({ stageIndex }) {
       <rect x="163" y="203" width="14" height="11" fill="none" stroke="#5A3A1A" strokeWidth="1" rx="1" />
       <circle cx="174" cy="203" r="3" fill="#C4A060" />
       <path d="M139,184 Q160,168 181,184" fill="none" stroke="#9A6840" strokeWidth="1.5" />
-
-      {/* Stage overlays */}
       {stageIndex === 1 && (
         <g>
           <circle cx="160" cy="96" r="22" fill="#7D8CFF" opacity="0.1">
@@ -141,12 +120,8 @@ function HouseIllustration({ stageIndex }) {
           <text x="147" y="112" fontSize="24" style={{ userSelect: 'none' }}>📷</text>
         </g>
       )}
-      {stageIndex === 2 && (
-        <text x="236" y="226" fontSize="30" style={{ userSelect: 'none' }}>🧳</text>
-      )}
-      {stageIndex === 3 && (
-        <text x="34" y="226" fontSize="30" style={{ userSelect: 'none' }}>🧹</text>
-      )}
+      {stageIndex === 2 && <text x="236" y="226" fontSize="30" style={{ userSelect: 'none' }}>🧳</text>}
+      {stageIndex === 3 && <text x="34" y="226" fontSize="30" style={{ userSelect: 'none' }}>🧹</text>}
       {stageIndex === 4 && (
         <g>
           <text x="254" y="178" fontSize="26" style={{ userSelect: 'none' }}>📱</text>
