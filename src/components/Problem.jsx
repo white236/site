@@ -45,7 +45,7 @@ export default function Problem() {
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-olive opacity-[0.06] rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-14 reveal">
+        <div className="text-center mb-6 sm:mb-14 reveal">
           <span className="inline-block bg-brand-orange/15 text-brand-orange font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-4 tracking-wide">
             Le vrai défi
           </span>
@@ -53,7 +53,7 @@ export default function Problem() {
             Louer en courte durée, c'est rentable.{' '}
             <span className="text-brand-orange">Mais ça prend du temps.</span>
           </h2>
-          <p className="mt-4 text-white/45 text-lg max-w-xl mx-auto font-body">
+          <p className="hidden sm:block mt-4 text-white/45 text-lg max-w-xl mx-auto font-body">
             Entre les messages, le ménage, les clés et les avis : gérer seul sa location, c'est vite un deuxième travail.
           </p>
         </div>
@@ -86,7 +86,7 @@ export default function Problem() {
           ))}
         </div>
 
-        <div className="text-center mt-12 reveal">
+        <div className="text-center mt-6 sm:mt-12 reveal">
           <p className="text-white/38 font-body text-base mb-4">
             Et si quelqu'un gérait ça pour vous ?
           </p>
