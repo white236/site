@@ -22,6 +22,11 @@ export default function Header() {
     setOpen(false)
   }
 
+  function goVictor() {
+    window.location.hash = '#victor'
+    setOpen(false)
+  }
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-cream/96 backdrop-blur-md border-b border-cream-deeper">
       <div className="max-w-7xl mx-auto flex items-center justify-between px-4 lg:px-6 h-14 lg:h-16">
@@ -58,6 +63,12 @@ export default function Header() {
           >
             Notre territoire
           </button>
+          <button
+            onClick={goVictor}
+            className="font-heading font-semibold text-brand-olive hover:text-brand-olive-dark hover:bg-brand-olive/8 transition-all duration-200 px-3 py-2 rounded-lg text-[14px] whitespace-nowrap"
+          >
+            Victor
+          </button>
           <a
             href="tel:0620711975"
             className="ml-3 inline-flex items-center gap-2 bg-brand-orange text-white font-heading font-bold text-sm px-4 py-2 rounded-xl hover:bg-brand-orange-dark transition-colors"
@@ -93,6 +104,12 @@ export default function Header() {
             className="font-heading font-semibold text-brand-olive hover:text-brand-olive-dark transition-colors py-3 text-base text-left border-b border-cream-deeper/50"
           >
             Notre territoire 🗺️
+          </button>
+          <button
+            onClick={goVictor}
+            className="font-heading font-semibold text-brand-olive hover:text-brand-olive-dark transition-colors py-3 text-base text-left border-b border-cream-deeper/50"
+          >
+            Victor 👋
           </button>
           <a
             href="tel:0620711975"

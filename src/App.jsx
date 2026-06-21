@@ -15,16 +15,21 @@ import CTAFinal from './components/CTAFinal'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 import TerritoirePage from './components/TerritoirePage'
+import VictorPage from './components/VictorPage'
 
 export default function App() {
-  const [page, setPage] = useState(() =>
-    window.location.hash === '#territoire' ? 'territoire' : 'accueil'
-  )
+  const [page, setPage] = useState(() => {
+    if (window.location.hash === '#territoire') return 'territoire'
+    if (window.location.hash === '#victor') return 'victor'
+    return 'accueil'
+  })
 
   // Hash-based page routing
   useEffect(() => {
     const onHash = () => {
-      const target = window.location.hash === '#territoire' ? 'territoire' : 'accueil'
+      let target = 'accueil'
+      if (window.location.hash === '#territoire') target = 'territoire'
+      if (window.location.hash === '#victor') target = 'victor'
       setPage(target)
       window.scrollTo({ top: 0, behavior: 'instant' })
     }
@@ -47,9 +52,8 @@ export default function App() {
     return () => observer.disconnect()
   }, [page])
 
-  if (page === 'territoire') {
-    return <TerritoirePage />
-  }
+  if (page === 'territoire') return <TerritoirePage />
+  if (page === 'victor')     return <VictorPage />
 
   return (
     <div className="min-h-screen page-fade-in">

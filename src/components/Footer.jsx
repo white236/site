@@ -2,10 +2,12 @@ import Logo from './Logo'
 import ProvençalHouse from './ProvençalHouse'
 
 const navLinks = [
-  { href: '#offre', label: 'Notre offre' },
-  { href: '#fonctionnement', label: 'Fonctionnement' },
-  { href: '#securite', label: 'Sécurité' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#', label: 'Accueil', hash: '' },
+  { href: '#', label: 'Nos services', hash: 'ch-offre' },
+  { href: '#', label: 'Fonctionnement', hash: 'ch-fonctionnement' },
+  { href: '#', label: 'Victor', hash: 'victor' },
+  { href: '#', label: 'Notre territoire', hash: 'territoire' },
+  { href: '#', label: 'Contact', hash: 'ch-contact' },
 ]
 
 export default function Footer() {
@@ -71,13 +73,23 @@ export default function Footer() {
             <h4 className="font-heading font-bold text-white text-sm mb-4 tracking-wide uppercase">Navigation</h4>
             <ul className="space-y-2.5">
               {navLinks.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
-                    className="font-body text-sm text-white/50 hover:text-brand-orange transition-colors"
+                <li key={link.label}>
+                  <button
+                    onClick={() => {
+                      if (link.hash === 'victor' || link.hash === 'territoire') {
+                        window.location.hash = `#${link.hash}`
+                      } else if (link.hash) {
+                        window.location.hash = ''
+                        setTimeout(() => document.getElementById(link.hash)?.scrollIntoView({ behavior: 'smooth' }), 50)
+                      } else {
+                        window.location.hash = ''
+                        window.scrollTo({ top: 0, behavior: 'smooth' })
+                      }
+                    }}
+                    className="font-body text-sm text-white/50 hover:text-brand-orange transition-colors text-left"
                   >
                     {link.label}
-                  </a>
+                  </button>
                 </li>
               ))}
             </ul>
