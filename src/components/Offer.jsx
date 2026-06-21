@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 import FloatingParticles from './FloatingParticles'
 
@@ -48,6 +48,7 @@ const services = [
 export default function Offer() {
   const containerRef = useRef(null)
   useRevealChildren(containerRef)
+  const [open, setOpen] = useState(null)
 
   return (
     <section id="offre" className="py-12 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
@@ -70,22 +71,34 @@ export default function Offer() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
           {services.map((s, i) => (
             <div
               key={i}
-              className={`reveal reveal-delay-${(i % 4) + 1} group bg-white rounded-3xl p-5 shadow-card
-                hover:shadow-card-hover hover:-translate-y-2 hover:border-brand-orange/30
-                transition-all duration-300 border border-cream-deeper`}
+              className={`reveal reveal-delay-${(i % 4) + 1} group bg-white rounded-3xl p-4 sm:p-5 shadow-card
+                sm:hover:shadow-card-hover sm:hover:-translate-y-2 sm:hover:border-brand-orange/30
+                transition-all duration-300 border border-cream-deeper cursor-pointer`}
+              onClick={() => setOpen(open === i ? null : i)}
             >
-              <div className="relative w-12 h-12 bg-cream-dark rounded-2xl flex items-center justify-center text-2xl mb-4 group-hover:bg-brand-orange/10 transition-colors duration-300">
-                {s.icon}
-                <span className="absolute -top-1.5 -right-1.5 text-xs opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-300 select-none">🌿</span>
+              <div className="flex items-center gap-3 sm:block">
+                <div className="relative w-10 h-10 sm:w-12 sm:h-12 bg-cream-dark rounded-2xl flex items-center justify-center text-xl sm:text-2xl sm:mb-4 flex-shrink-0 group-hover:bg-brand-orange/10 transition-colors duration-300">
+                  {s.icon}
+                  <span className="absolute -top-1.5 -right-1.5 text-xs opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-300 select-none">🌿</span>
+                </div>
+                <h3 className="font-heading font-extrabold text-noir text-base flex-1 leading-snug group-hover:text-brand-orange transition-colors duration-300">
+                  {s.title}
+                </h3>
+                <svg
+                  className="sm:hidden w-4 h-4 text-noir/30 flex-shrink-0 transition-transform duration-300"
+                  style={{ transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
-              <h3 className="font-heading font-extrabold text-noir text-base mb-1.5 leading-snug group-hover:text-brand-orange transition-colors duration-300">
-                {s.title}
-              </h3>
-              <p className="text-noir/48 font-body text-sm leading-relaxed">{s.desc}</p>
+              <p className={`text-noir/48 font-body text-sm leading-relaxed ${open === i ? 'mt-2 sm:mt-1.5' : 'hidden sm:block sm:mt-1.5'}`}>
+                {s.desc}
+              </p>
             </div>
           ))}
         </div>

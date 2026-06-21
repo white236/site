@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 
 const problems = [
@@ -37,6 +37,7 @@ const problems = [
 export default function Problem() {
   const containerRef = useRef(null)
   useRevealChildren(containerRef)
+  const [open, setOpen] = useState(null)
 
   return (
     <section className="bg-noir py-12 sm:py-28 relative overflow-hidden" ref={containerRef}>
@@ -57,18 +58,30 @@ export default function Problem() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {problems.map((p, i) => (
             <div
               key={i}
-              className={`reveal reveal-delay-${(i % 3) + 1} group bg-noir-light rounded-3xl p-6 border border-white/[0.06]
-                hover:border-brand-orange/25 hover:bg-white/[0.04] hover:-translate-y-1 transition-all duration-300 cursor-default`}
+              className={`reveal reveal-delay-${(i % 3) + 1} group bg-noir-light rounded-3xl p-4 sm:p-6 border border-white/[0.06]
+                hover:border-brand-orange/25 hover:bg-white/[0.04] sm:hover:-translate-y-1 transition-all duration-300 cursor-pointer`}
+              onClick={() => setOpen(open === i ? null : i)}
             >
-              <div className="text-3xl mb-4">{p.icon}</div>
-              <h3 className="font-heading font-bold text-white text-base mb-2 group-hover:text-brand-orange transition-colors duration-300">
-                {p.title}
-              </h3>
-              <p className="text-white/45 font-body text-sm leading-relaxed">{p.desc}</p>
+              <div className="flex items-center gap-3 sm:block">
+                <div className="text-2xl sm:text-3xl sm:mb-4 flex-shrink-0">{p.icon}</div>
+                <h3 className="font-heading font-bold text-white text-base flex-1 group-hover:text-brand-orange transition-colors duration-300">
+                  {p.title}
+                </h3>
+                <svg
+                  className="sm:hidden w-4 h-4 text-white/40 flex-shrink-0 transition-transform duration-300"
+                  style={{ transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+              <p className={`text-white/45 font-body text-sm leading-relaxed ${open === i ? 'mt-2 sm:mt-2' : 'hidden sm:block sm:mt-2'}`}>
+                {p.desc}
+              </p>
             </div>
           ))}
         </div>
