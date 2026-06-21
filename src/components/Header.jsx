@@ -67,7 +67,7 @@ export default function Header() {
             onClick={goVictor}
             className="font-heading font-semibold text-brand-olive hover:text-brand-olive-dark hover:bg-brand-olive/8 transition-all duration-200 px-3 py-2 rounded-lg text-[14px] whitespace-nowrap"
           >
-            Victor
+            Qui suis-je ?
           </button>
           <a
             href="tel:0620711975"
@@ -109,7 +109,7 @@ export default function Header() {
             onClick={goVictor}
             className="font-heading font-semibold text-brand-olive hover:text-brand-olive-dark transition-colors py-3 text-base text-left border-b border-cream-deeper/50"
           >
-            Victor 👋
+            Qui suis-je ? 👋
           </button>
           <a
             href="tel:0620711975"

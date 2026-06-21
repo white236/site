@@ -5,7 +5,7 @@ const navLinks = [
   { href: '#', label: 'Accueil', hash: '' },
   { href: '#', label: 'Nos services', hash: 'ch-offre' },
   { href: '#', label: 'Fonctionnement', hash: 'ch-fonctionnement' },
-  { href: '#', label: 'Victor', hash: 'victor' },
+  { href: '#', label: 'Qui suis-je ?', hash: 'victor' },
   { href: '#', label: 'Notre territoire', hash: 'territoire' },
   { href: '#', label: 'Contact', hash: 'ch-contact' },
 ]
