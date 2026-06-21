@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import maisonImg from '../assets/istockphoto-175970870-612x612.jpg'
 
 const stages = [
   {
@@ -45,99 +46,63 @@ const stages = [
   },
 ]
 
+const stageOverlays = [
+  { tint: null,                     badge: null,  check: false, pulse: false },
+  { tint: 'rgba(125,140,255,0.20)', badge: '📷',  check: false, pulse: false },
+  { tint: 'rgba(245,166,35,0.16)',  badge: '🧳',  check: false, pulse: false },
+  { tint: 'rgba(142,155,114,0.20)', badge: '🧹',  check: false, pulse: false },
+  { tint: 'rgba(197,202,233,0.24)', badge: '📱',  check: false, pulse: true  },
+  { tint: 'rgba(76,175,80,0.18)',   badge: null,  check: true,  pulse: false },
+]
+
 function HouseIllustration({ stageIndex }) {
-  const wc = stages[stageIndex].windowColor
+  const ov = stageOverlays[stageIndex]
 
   return (
-    <svg
-      viewBox="0 0 320 268"
-      xmlns="http://www.w3.org/2000/svg"
-      className="w-full"
-      style={{ filter: 'drop-shadow(0 12px 24px rgba(44,58,32,0.14))' }}
-    >
-      <defs>
-        <linearGradient id="mv-sky" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#FAF5EC" />
-          <stop offset="100%" stopColor="#F0EBF7" />
-        </linearGradient>
-        <linearGradient id="mv-ground" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stopColor="#DDD0B0" />
-          <stop offset="100%" stopColor="#C8BA98" />
-        </linearGradient>
-      </defs>
-      <rect width="320" height="268" fill="url(#mv-sky)" />
-      <polygon points="160,28 248,128 72,128" fill="#C8B8A0" opacity="0.28" />
-      <polygon points="160,36 218,128 102,128" fill="#D8C8B0" opacity="0.18" />
-      <polygon points="160,28 172,50 148,50" fill="white" opacity="0.55" />
-      <rect x="0" y="212" width="320" height="56" fill="url(#mv-ground)" />
-      <rect x="0" y="212" width="320" height="5" fill="#C0B090" />
-      {[58, 70, 80, 242, 254, 264].map((x, i) => (
-        <g key={i}>
-          <line x1={x} y1="220" x2={x} y2="212" stroke="#7A8060" strokeWidth="1.5" />
-          <ellipse cx={x} cy="212" rx="5" ry="9" fill="#9B89C4" opacity="0.65" />
-        </g>
-      ))}
-      <rect x="80" y="128" width="160" height="88" fill="#D4C0A0" />
-      <line x1="80" y1="148" x2="240" y2="148" stroke="#C0AC88" strokeWidth="0.8" />
-      <line x1="80" y1="168" x2="240" y2="168" stroke="#C0AC88" strokeWidth="0.8" />
-      <line x1="80" y1="188" x2="240" y2="188" stroke="#C0AC88" strokeWidth="0.8" />
-      {[106, 140, 180, 214].map((x, i) => (
-        <line key={i} x1={x} y1="128" x2={x} y2="148" stroke="#C0AC88" strokeWidth="0.6" />
-      ))}
-      {[122, 198].map((x, i) => (
-        <line key={i} x1={x} y1="168" x2={x} y2="188" stroke="#C0AC88" strokeWidth="0.6" />
-      ))}
-      <rect x="194" y="78" width="16" height="44" fill="#C4B09A" />
-      <rect x="191" y="76" width="22" height="7" fill="#B0A080" rx="1" />
-      <polygon points="66,132 160,65 254,132" fill="#9A6B45" />
-      <polygon points="66,132 160,65 254,132" fill="#000" opacity="0.12" />
-      <polyline points="66,132 160,65 254,132" fill="none" stroke="#7A4428" strokeWidth="2" />
-      <rect x="88" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
-      <rect x="97" y="142" width="52" height="46" fill="#8B7050" rx="2" />
-      <rect x="101" y="146" width="44" height="38" rx="1" fill={wc} style={{ transition: 'fill 1s ease' }} />
-      <line x1="123" y1="146" x2="123" y2="184" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-      <line x1="101" y1="165" x2="145" y2="165" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-      <rect x="152" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
-      <rect x="171" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
-      <rect x="180" y="142" width="52" height="46" fill="#8B7050" rx="2" />
-      <rect x="184" y="146" width="44" height="38" rx="1" fill={wc} style={{ transition: 'fill 1s ease' }} />
-      <line x1="206" y1="146" x2="206" y2="184" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-      <line x1="184" y1="165" x2="228" y2="165" stroke="rgba(255,255,255,0.3)" strokeWidth="2" />
-      <rect x="235" y="142" width="9" height="46" fill="#7A8060" opacity="0.55" rx="1" />
-      <rect x="139" y="184" width="42" height="36" fill="#7A5838" rx="3 3 0 0" />
-      <rect x="143" y="188" width="14" height="11" fill="none" stroke="#5A3A1A" strokeWidth="1" rx="1" />
-      <rect x="163" y="188" width="14" height="11" fill="none" stroke="#5A3A1A" strokeWidth="1" rx="1" />
-      <rect x="143" y="203" width="14" height="11" fill="none" stroke="#5A3A1A" strokeWidth="1" rx="1" />
-      <rect x="163" y="203" width="14" height="11" fill="none" stroke="#5A3A1A" strokeWidth="1" rx="1" />
-      <circle cx="174" cy="203" r="3" fill="#C4A060" />
-      <path d="M139,184 Q160,168 181,184" fill="none" stroke="#9A6840" strokeWidth="1.5" />
-      {stageIndex === 1 && (
-        <g>
-          <circle cx="160" cy="96" r="22" fill="#7D8CFF" opacity="0.1">
-            <animate attributeName="r" values="18;30;18" dur="2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.1;0.01;0.1" dur="2s" repeatCount="indefinite" />
-          </circle>
-          <text x="147" y="112" fontSize="24" style={{ userSelect: 'none' }}>📷</text>
-        </g>
+    <div className="relative rounded-3xl overflow-hidden shadow-[0_16px_48px_rgba(44,58,32,0.22)]">
+      <img
+        src={maisonImg}
+        alt="Maison provençale au pied du Ventoux"
+        className="w-full object-cover"
+        style={{ aspectRatio: '4/3' }}
+      />
+
+      {/* Color tint overlay — transitions between stages */}
+      <div
+        className="absolute inset-0 pointer-events-none transition-all duration-1000"
+        style={{ background: ov.tint ?? 'transparent' }}
+      />
+
+      {/* Emoji badge — top right */}
+      {ov.badge && (
+        <div
+          className="absolute top-4 right-4 w-14 h-14 bg-white/90 backdrop-blur-sm rounded-2xl flex items-center justify-center shadow-lg"
+          style={{ fontSize: 28 }}
+        >
+          {ov.badge}
+          {ov.pulse && (
+            <span className="absolute -top-1.5 -right-1.5 flex">
+              <span className="animate-ping absolute w-4 h-4 rounded-full bg-brand-orange opacity-75" />
+              <span className="w-4 h-4 rounded-full bg-brand-orange" />
+            </span>
+          )}
+        </div>
       )}
-      {stageIndex === 2 && <text x="236" y="226" fontSize="30" style={{ userSelect: 'none' }}>🧳</text>}
-      {stageIndex === 3 && <text x="34" y="226" fontSize="30" style={{ userSelect: 'none' }}>🧹</text>}
-      {stageIndex === 4 && (
-        <g>
-          <text x="254" y="178" fontSize="26" style={{ userSelect: 'none' }}>📱</text>
-          <circle cx="277" cy="154" r="5" fill="#F26122">
-            <animate attributeName="r" values="4;7;4" dur="1.1s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="1;0.5;1" dur="1.1s" repeatCount="indefinite" />
-          </circle>
-        </g>
+
+      {/* Green checkmark for stage 6 */}
+      {ov.check && (
+        <div className="absolute top-4 right-4 w-14 h-14 bg-green-500 rounded-2xl flex items-center justify-center shadow-lg">
+          <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+          </svg>
+        </div>
       )}
-      {stageIndex === 5 && (
-        <g>
-          <circle cx="160" cy="44" r="20" fill="#4CAF50" />
-          <path d="M150,44 L157,51 L172,37" stroke="white" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-        </g>
-      )}
-    </svg>
+
+      {/* Stage counter — bottom left */}
+      <div className="absolute bottom-4 left-4 bg-noir/60 backdrop-blur-sm text-white font-heading font-black text-xs px-3 py-1.5 rounded-full tracking-widest">
+        {stages[stageIndex].number} / 06
+      </div>
+    </div>
   )
 }
 
