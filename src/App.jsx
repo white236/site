@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import victorImg from './assets/image.jpg'
 import CursorGlow from './components/CursorGlow'
 import MistralParticles from './components/MistralParticles'
 import ScrollPetals from './components/ScrollPetals'
@@ -16,6 +17,7 @@ import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
 import TerritoirePage from './components/TerritoirePage'
 import VictorPage from './components/VictorPage'
+import BottomNav from './components/BottomNav'
 
 export default function App() {
   const [page, setPage] = useState(() => {
@@ -52,8 +54,8 @@ export default function App() {
     return () => observer.disconnect()
   }, [page])
 
-  if (page === 'territoire') return <TerritoirePage />
-  if (page === 'victor')     return <VictorPage />
+  if (page === 'territoire') return <><TerritoirePage /><BottomNav currentPage="territoire" /></>
+  if (page === 'victor')     return <><VictorPage /><BottomNav currentPage="victor" /></>
 
   return (
     <div className="min-h-screen page-fade-in">
@@ -70,6 +72,37 @@ export default function App() {
         <div id="ch-fonctionnement"><HowItWorks /></div>
         <MaisonVivante />
         <div id="ch-garanties"><Differentiators /></div>
+
+        {/* ── Victor teaser ── */}
+        <div className="py-8 sm:py-14 bg-white">
+          <div className="max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="flex items-center gap-5 bg-cream rounded-3xl p-6 border border-cream-deeper">
+              <div className="relative flex-shrink-0">
+                <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden">
+                  <img src={victorImg} alt="Victor" className="w-full h-full object-cover object-[center_8%]" />
+                </div>
+                <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-cream" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-heading font-bold text-noir text-base mb-0.5">
+                  Derrière tout ça, il y a <span className="text-brand-orange">Victor.</span>
+                </p>
+                <p className="font-body text-noir/50 text-sm leading-relaxed mb-3">
+                  Étudiant en économie, local du Ventoux, disponible 7j/7.
+                </p>
+                <button
+                  onClick={() => { window.location.hash = '#victor' }}
+                  className="inline-flex items-center gap-1.5 font-heading font-bold text-sm text-brand-orange hover:text-brand-orange-dark transition-colors"
+                >
+                  Qui suis-je ?
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* ── Territoire teaser ── */}
         <div
@@ -126,7 +159,9 @@ export default function App() {
           <ContactForm />
         </div>
       </main>
+      <div className="h-16 lg:hidden" />
       <Footer />
+      <BottomNav currentPage={page} />
     </div>
   )
 }
