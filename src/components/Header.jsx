@@ -6,8 +6,6 @@ const links = [
   { id: 'ch-offre',          label: 'Nos services' },
   { id: 'ch-fonctionnement', label: 'Fonctionnement' },
   { id: 'ch-garanties',      label: 'Nos garanties' },
-  { id: 'ch-esprit',         label: "L'esprit du Ventoux" },
-  { id: 'ch-territoire',     label: 'Notre territoire' },
   { id: 'ch-contact',        label: 'Contact' },
 ]
 
@@ -16,6 +14,11 @@ export default function Header() {
 
   function go(id) {
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    setOpen(false)
+  }
+
+  function goTerritoire() {
+    window.location.hash = '#territoire'
     setOpen(false)
   }
 
@@ -49,6 +52,12 @@ export default function Header() {
               {link.label}
             </button>
           ))}
+          <button
+            onClick={goTerritoire}
+            className="font-heading font-semibold text-brand-olive hover:text-brand-olive-dark hover:bg-brand-olive/8 transition-all duration-200 px-3 py-2 rounded-lg text-[14px] whitespace-nowrap"
+          >
+            Notre territoire
+          </button>
           <a
             href="tel:0620711975"
             className="ml-3 inline-flex items-center gap-2 bg-brand-orange text-white font-heading font-bold text-sm px-4 py-2 rounded-xl hover:bg-brand-orange-dark transition-colors"
@@ -74,11 +83,17 @@ export default function Header() {
             <button
               key={link.id}
               onClick={() => go(link.id)}
-              className="font-heading font-semibold text-noir/70 hover:text-brand-orange transition-colors py-3 text-base text-left border-b border-cream-deeper/50 last:border-0"
+              className="font-heading font-semibold text-noir/70 hover:text-brand-orange transition-colors py-3 text-base text-left border-b border-cream-deeper/50"
             >
               {link.label}
             </button>
           ))}
+          <button
+            onClick={goTerritoire}
+            className="font-heading font-semibold text-brand-olive hover:text-brand-olive-dark transition-colors py-3 text-base text-left border-b border-cream-deeper/50"
+          >
+            Notre territoire 🗺️
+          </button>
           <a
             href="tel:0620711975"
             className="mt-3 inline-flex items-center justify-center gap-2 bg-brand-orange text-white font-heading font-bold text-sm px-4 py-3 rounded-xl hover:bg-brand-orange-dark transition-colors"

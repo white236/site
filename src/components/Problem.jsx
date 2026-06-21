@@ -39,7 +39,7 @@ export default function Problem() {
   useRevealChildren(containerRef)
 
   return (
-    <section className="bg-noir py-20 sm:py-28 relative overflow-hidden" ref={containerRef}>
+    <section className="bg-noir py-12 sm:py-28 relative overflow-hidden" ref={containerRef}>
       <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange opacity-[0.05] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-brand-olive opacity-[0.06] rounded-full blur-3xl pointer-events-none" />
 

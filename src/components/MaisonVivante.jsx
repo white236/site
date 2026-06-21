@@ -258,7 +258,7 @@ export default function MaisonVivante() {
     <section className="bg-cream relative">
 
       {/* Header */}
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-20 pb-10 text-center">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-8 text-center">
         <span className="inline-block bg-brand-orange/15 text-brand-orange font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-5 tracking-wide">
           Le cycle d'un séjour
         </span>

@@ -50,7 +50,7 @@ export default function Offer() {
   useRevealChildren(containerRef)
 
   return (
-    <section id="offre" className="py-20 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
+    <section id="offre" className="py-12 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
       <FloatingParticles seed={3} />
       <div className="absolute top-0 right-0 w-80 h-80 bg-brand-orange/[0.08] rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-64 h-64 bg-brand-olive/[0.07] rounded-full blur-3xl pointer-events-none" />

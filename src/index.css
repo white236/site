@@ -301,6 +301,15 @@
   to { stroke-dashoffset: 0; }
 }
 
+/* Page transition fade-in */
+@keyframes pageFadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.page-fade-in {
+  animation: pageFadeIn 0.3s ease forwards;
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

@@ -29,7 +29,7 @@ export default function NouvelleGeneration() {
   useRevealChildren(containerRef)
 
   return (
-    <section className="py-24 sm:py-32 bg-noir relative overflow-hidden" ref={containerRef}>
+    <section className="py-12 sm:py-32 bg-noir relative overflow-hidden" ref={containerRef}>
       {/* Lavande ambient blobs */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange opacity-[0.13] rounded-full blur-[90px] pointer-events-none translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-orange opacity-[0.08] rounded-full blur-[70px] pointer-events-none -translate-x-1/4 translate-y-1/4" />

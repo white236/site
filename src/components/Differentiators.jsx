@@ -41,7 +41,7 @@ export default function Differentiators() {
 
   return (
     <section
-      className="py-20 sm:py-28 relative overflow-hidden"
+      className="py-12 sm:py-28 relative overflow-hidden"
       style={{ background: 'linear-gradient(160deg, #EDE4F5 0%, #E8DCF2 40%, #EBE0F4 70%, #EDE4F5 100%)' }}
       ref={containerRef}
     >
