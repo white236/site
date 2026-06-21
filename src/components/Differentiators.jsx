@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
 import FloatingParticles from './FloatingParticles'
 
@@ -38,6 +38,7 @@ const cards = [
 export default function Differentiators() {
   const containerRef = useRef(null)
   useRevealChildren(containerRef)
+  const [open, setOpen] = useState(null)
 
   return (
     <section
@@ -60,7 +61,7 @@ export default function Differentiators() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 
         {/* Header */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-14">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center mb-6 sm:mb-14">
           <div className="reveal">
             <span className="inline-block bg-brand-olive/15 text-brand-olive-dark font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-5 tracking-wide">
               Notre approche
@@ -87,7 +88,7 @@ export default function Differentiators() {
             </div>
           </div>
 
-          <div className="reveal reveal-delay-2">
+          <div className="hidden lg:block reveal reveal-delay-2">
             <div className="bg-cream rounded-3xl p-7 border border-cream-deeper">
               <div className="flex items-start gap-4 mb-5">
                 <div className="w-10 h-10 bg-brand-orange/10 rounded-2xl flex items-center justify-center text-lg flex-shrink-0">
@@ -111,24 +112,34 @@ export default function Differentiators() {
         </div>
 
         {/* Cards */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-5">
           {cards.map((card, i) => (
             <div
               key={i}
-              className={`reveal reveal-delay-${(i % 3) + 1} group flex items-start gap-4 bg-cream rounded-3xl p-6
-                border border-cream-deeper hover:border-brand-orange/20 hover:bg-white hover:shadow-card-hover hover:-translate-y-2
-                transition-all duration-300 cursor-default`}
+              className={`reveal reveal-delay-${(i % 3) + 1} group bg-cream rounded-3xl p-4 sm:p-6
+                border border-cream-deeper sm:hover:border-brand-orange/20 sm:hover:bg-white sm:hover:shadow-card-hover sm:hover:-translate-y-2
+                transition-all duration-300 cursor-pointer`}
+              onClick={() => setOpen(open === i ? null : i)}
             >
-              <div className="relative w-11 h-11 bg-white rounded-2xl flex items-center justify-center text-xl flex-shrink-0 shadow-card group-hover:bg-brand-orange/10 transition-colors duration-300">
-                <span className="absolute -top-1.5 -right-1.5 text-xs opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-300 select-none">🌿</span>
-                {card.icon}
-              </div>
-              <div>
-                <h3 className="font-heading font-bold text-noir text-sm mb-1 leading-snug group-hover:text-brand-orange transition-colors duration-300">
+              <div className="flex items-center gap-3 sm:items-start">
+                <div className="relative w-10 h-10 sm:w-11 sm:h-11 bg-white rounded-2xl flex items-center justify-center text-lg sm:text-xl flex-shrink-0 shadow-card group-hover:bg-brand-orange/10 transition-colors duration-300">
+                  <span className="absolute -top-1.5 -right-1.5 text-xs opacity-0 group-hover:opacity-100 group-hover:-translate-y-0.5 transition-all duration-300 select-none">🌿</span>
+                  {card.icon}
+                </div>
+                <h3 className="font-heading font-bold text-noir text-sm flex-1 leading-snug group-hover:text-brand-orange transition-colors duration-300">
                   {card.title}
                 </h3>
-                <p className="text-noir/50 font-body text-sm leading-relaxed">{card.desc}</p>
+                <svg
+                  className="sm:hidden w-4 h-4 text-noir/30 flex-shrink-0 transition-transform duration-300"
+                  style={{ transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
               </div>
+              <p className={`text-noir/50 font-body text-sm leading-relaxed ${open === i ? 'mt-2 sm:mt-1' : 'hidden sm:block sm:mt-1'}`}>
+                {card.desc}
+              </p>
             </div>
           ))}
         </div>
