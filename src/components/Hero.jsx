@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react'
-import ProvençalHouse from './ProvençalHouse'
+import maisonImg from '../assets/istockphoto-175970870-612x612.jpg'
 import FloatingParticles from './FloatingParticles'
 
 const badges = [
@@ -96,8 +96,16 @@ export default function Hero() {
 
           {/* Right: house illustration + badges */}
           <div className="flex flex-col items-center">
-            <div className="bg-white rounded-4xl px-6 pt-6 pb-4 shadow-card-hover border border-cream-deeper w-full max-w-sm">
-              <ProvençalHouse className="w-full h-auto" />
+            <div className="relative rounded-3xl overflow-hidden shadow-card-hover border border-cream-deeper w-full max-w-sm">
+              <img
+                src={maisonImg}
+                alt="Maison provençale au pied du Ventoux"
+                className="w-full object-cover"
+                style={{ aspectRatio: '4/3' }}
+              />
+              <div className="absolute bottom-3 left-3 bg-noir/60 backdrop-blur-sm text-white font-heading font-bold text-xs px-3 py-1.5 rounded-full">
+                Autour du Mont Ventoux
+              </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3 mt-6 w-full max-w-sm">
