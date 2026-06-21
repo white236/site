@@ -175,9 +175,17 @@
   .animate-float,
   .animate-float-delay,
   .animate-float-slow,
-  .animate-pulse-soft {
+  .animate-pulse-soft,
+  .badge-pop,
+  .progress-fill,
+  .shimmer-el,
+  .scan-line,
+  .check-draw {
     animation: none !important;
   }
+  .badge-pop    { transform: none !important; opacity: 1 !important; }
+  .check-draw   { stroke-dashoffset: 0 !important; }
+  .progress-fill { width: 100% !important; }
   .particle   { opacity: 0 !important; }
   .mistral-el { opacity: 0 !important; }
   .reveal {
@@ -237,6 +245,60 @@
 }
 .chapter-num-in {
   animation: pillLabelIn 0.28s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* MaisonVivante — badge spring pop */
+@keyframes badgePop {
+  0%   { transform: scale(0.3) rotate(-15deg); opacity: 0; }
+  55%  { transform: scale(1.22) rotate(5deg);  opacity: 1; }
+  75%  { transform: scale(0.92) rotate(-2deg); }
+  100% { transform: scale(1)    rotate(0deg);  opacity: 1; }
+}
+.badge-pop {
+  animation: badgePop 0.48s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+/* MaisonVivante — progress bar fill */
+@keyframes progressGrow {
+  from { width: 0%; }
+}
+.progress-fill {
+  animation: progressGrow 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* MaisonVivante — horizontal shimmer sweep */
+@keyframes shimmerEl {
+  from { left: -40%; }
+  to   { left: 140%; }
+}
+.shimmer-el {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: -40%;
+  width: 40%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.42) 50%, transparent 100%);
+  animation: shimmerEl 0.7s ease forwards;
+}
+
+/* MaisonVivante — camera scan line (stage 1 only) */
+@keyframes scanLine {
+  0%   { top: 5%;  opacity: 0; }
+  8%   { opacity: 1; }
+  92%  { opacity: 1; }
+  100% { top: 93%; opacity: 0; }
+}
+.scan-line {
+  animation: scanLine 2.2s ease-in-out infinite;
+}
+
+/* MaisonVivante — SVG check draw */
+.check-draw {
+  stroke-dasharray: 30;
+  stroke-dashoffset: 30;
+  animation: checkDraw 0.5s cubic-bezier(0.22, 1, 0.36, 1) 0.12s forwards;
+}
+@keyframes checkDraw {
+  to { stroke-dashoffset: 0; }
 }
 
 /* Custom scrollbar */
