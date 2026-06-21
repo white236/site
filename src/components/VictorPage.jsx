@@ -1,3 +1,4 @@
+import victorImg from '../assets/image.jpg'
 import Logo from './Logo'
 import Footer from './Footer'
 
@@ -5,16 +6,41 @@ function goBack() {
   window.location.hash = ''
 }
 
-// ─── Replace this with the real photo once victor.jpg is in src/assets/ ───
-// import victorImg from '../assets/victor.jpg'
-// Then swap <AvatarPlaceholder /> for:
-// <img src={victorImg} alt="Victor" className="w-56 h-56 sm:w-72 sm:h-72 rounded-full object-cover object-top border-4 border-white shadow-[0_20px_60px_rgba(125,140,255,0.28)] flex-shrink-0" />
-function AvatarPlaceholder() {
+function VictorPhoto() {
   return (
-    <div className="w-56 h-56 sm:w-72 sm:h-72 rounded-full flex-shrink-0 border-4 border-white shadow-[0_20px_60px_rgba(125,140,255,0.28)] flex items-center justify-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #EDE4F5 0%, #E0E3FF 50%, #EDE4F5 100%)' }}
-    >
-      <span className="font-heading font-black text-brand-orange/35" style={{ fontSize: 110 }}>V</span>
+    <div className="relative flex-shrink-0 flex justify-center">
+      {/* Ambient glow behind the card */}
+      <div
+        className="absolute inset-0 rounded-[3rem] blur-3xl scale-110 pointer-events-none"
+        style={{ background: 'linear-gradient(135deg, rgba(125,140,255,0.22) 0%, rgba(142,155,114,0.18) 100%)' }}
+      />
+
+      {/* Gradient border ring */}
+      <div
+        className="relative rounded-[2.5rem] p-[3px] shadow-[0_24px_70px_rgba(125,140,255,0.30)]"
+        style={{ background: 'linear-gradient(145deg, #7D8CFF 0%, #8E9B72 55%, #A8B0FF 100%)' }}
+      >
+        <div className="rounded-[2.3rem] overflow-hidden w-60 sm:w-80" style={{ aspectRatio: '3/4' }}>
+          <img
+            src={victorImg}
+            alt="Victor — fondateur du Lokal Ventoux"
+            className="w-full h-full object-cover object-[center_8%] hover:scale-105 transition-transform duration-700"
+          />
+        </div>
+      </div>
+
+      {/* Bottom badge */}
+      <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white rounded-full px-5 py-2.5 shadow-card-hover flex items-center gap-2.5 whitespace-nowrap border border-cream-deeper">
+        <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse flex-shrink-0" />
+        <span className="font-heading font-bold text-noir text-sm">Victor · Fondateur</span>
+      </div>
+
+      {/* Floating accent dots */}
+      <div className="absolute top-10 -right-5 w-3 h-3 rounded-full bg-brand-orange/45 animate-float hidden sm:block" />
+      <div className="absolute top-28 -right-9 w-2 h-2 rounded-full bg-brand-olive/50 animate-float-delay hidden sm:block" />
+      <div className="absolute top-56 -right-4 w-1.5 h-1.5 rounded-full bg-brand-orange/30 animate-float-slow hidden sm:block" />
+      <div className="absolute bottom-20 -left-7 w-2.5 h-2.5 rounded-full bg-brand-orange/35 animate-float hidden sm:block" />
+      <div className="absolute bottom-36 -left-4 w-2 h-2 rounded-full bg-brand-olive/40 animate-float-delay hidden sm:block" />
     </div>
   )
 }
@@ -76,7 +102,7 @@ export default function VictorPage() {
 
               {/* Photo */}
               <div className="flex-shrink-0 flex justify-center">
-                <AvatarPlaceholder />
+                <VictorPhoto />
               </div>
 
               {/* Text */}
