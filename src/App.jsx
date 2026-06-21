@@ -66,7 +66,7 @@ export default function App() {
         <div id="ch-accueil"><Hero /></div>
         <div id="ch-defi"><Problem /></div>
         <div id="ch-offre"><Offer /></div>
-        <div id="ch-gen"><NouvelleGeneration /></div>
+        <div id="ch-gen" className="hidden sm:block"><NouvelleGeneration /></div>
         <div id="ch-fonctionnement"><HowItWorks /></div>
         <MaisonVivante />
         <div id="ch-garanties"><Differentiators /></div>

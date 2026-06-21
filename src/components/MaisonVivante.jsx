@@ -328,7 +328,7 @@ export default function MaisonVivante() {
             <div
               key={i}
               ref={el => { mobileRefs.current[i] = el }}
-              className="min-h-[65vh] flex items-center py-4"
+              className="min-h-[45vh] flex items-center py-4"
             >
               <StageCard s={s} i={i} active={stage} />
             </div>

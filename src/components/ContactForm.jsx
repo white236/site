@@ -7,7 +7,7 @@ export default function ContactForm() {
   useRevealChildren(containerRef)
 
   return (
-    <section id="contact" className="py-20 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
+    <section id="contact" className="py-12 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
       <FloatingParticles seed={9} />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(123,157,228,0.08)_0%,transparent_65%)] pointer-events-none" />
       <div className="absolute top-0 left-0 w-80 h-80 bg-brand-orange/[0.07] rounded-full blur-3xl pointer-events-none -translate-x-1/3 -translate-y-1/3" />
