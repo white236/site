@@ -108,14 +108,10 @@ export default function VictorPage() {
               {/* Text */}
               <div>
                 <span className="inline-block bg-brand-orange/15 text-brand-orange font-heading font-bold text-sm px-4 py-1.5 rounded-full mb-5 tracking-wide">
-                  Qui suis-je ?
+                  Le Lokal Ventoux
                 </span>
                 <h1 className="font-heading font-black text-4xl sm:text-5xl text-noir leading-tight mb-5">
-                  Bonjour, je suis{' '}
-                  <span className="relative inline-block">
-                    <span className="relative z-10 text-brand-orange">Victor.</span>
-                    <span className="absolute bottom-0.5 left-0 right-0 h-3 bg-brand-jaune/50 -skew-x-2 -z-0 rounded" />
-                  </span>
+                  Qui suis-je ?
                 </h1>
                 <p className="font-body text-lg sm:text-xl text-noir/65 leading-relaxed mb-5">
                   Étudiant en <strong className="text-noir/85 font-semibold">licence d'économie</strong>, j'ai grandi autour du Ventoux et j'ai toujours été passionné par la vente, la gestion et les relations humaines. J'ai lancé Le Lokal Ventoux pour faire quelque chose de{' '}
