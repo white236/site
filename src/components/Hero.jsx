@@ -48,18 +48,16 @@ export default function Hero() {
             </div>
 
             <h1 className="font-heading font-black text-4xl sm:text-5xl lg:text-[3.25rem] text-noir leading-[1.08] text-balance">
-              La conciergerie{' '}
+              Votre logement au Ventoux,{' '}
               <span className="relative inline-block">
-                <span className="relative z-10 text-brand-orange">jeune et locale</span>
+                <span className="relative z-10 text-brand-orange">géré par quelqu'un qui vit ici.</span>
                 <span className="absolute bottom-0.5 left-0 right-0 h-3 bg-brand-jaune/50 -skew-x-2 -z-0 rounded" />
               </span>
-              {' '}autour du Ventoux.
             </h1>
 
             <p className="font-body text-lg sm:text-xl text-noir/60 leading-relaxed max-w-xl">
-              Un regard neuf sur la location courte durée.{' '}
-              <strong className="text-noir/80 font-semibold">Je m'occupe du terrain</strong> : voyageurs, ménage, check-in, suivi.
-              Vous gardez la main, je fais tourner le quotidien.
+              Les grandes agences gèrent depuis Paris.{' '}
+              <strong className="text-noir/80 font-semibold">Victor est à 10 minutes de votre bien</strong> — présent sur le terrain, réactif, ancré dans le Ventoux depuis toujours.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3.5">
@@ -83,7 +81,7 @@ export default function Hero() {
             </div>
 
             <p className="text-sm font-body text-noir/38 font-medium">
-              ✓ Disponible 7j/7 · ✓ Réponse rapide · ✓ Local, humain, direct
+              ✓ Local du Ventoux · ✓ Disponible 7j/7 · ✓ Pas une agence à distance
             </p>
           </div>
 
@@ -105,8 +103,7 @@ export default function Hero() {
               {badges.map((b, i) => (
                 <div
                   key={i}
-                  className={`bg-white rounded-2xl p-3.5 shadow-card border border-cream-deeper flex items-start gap-2.5
-                    ${i % 2 === 0 ? 'animate-float' : 'animate-float-delay'}`}
+                  className="bg-white rounded-2xl p-3.5 shadow-card border border-cream-deeper flex items-start gap-2.5"
                 >
                   <span className="text-xl flex-shrink-0">{b.icon}</span>
                   <span className="text-xs font-heading font-bold text-noir leading-snug">{b.text}</span>

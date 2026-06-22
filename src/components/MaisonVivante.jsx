@@ -143,15 +143,16 @@ function HouseIllustration({ stageIndex }) {
   )
 }
 
-function StageDots({ current }) {
+function StageDots({ current, onDotClick }) {
   return (
     <div className="flex justify-center gap-2">
       {stages.map((_, i) => {
         const ac = stageAccents[i]
         return (
-          <div
+          <button
             key={i}
-            className="rounded-full transition-all duration-500"
+            onClick={() => onDotClick(i)}
+            className="rounded-full transition-all duration-500 hover:scale-125 focus:outline-none"
             style={
               i === current
                 ? { width: 28, height: 7, background: ac.color }
@@ -216,9 +217,14 @@ function StageCard({ s, i, active }) {
 
 export default function MaisonVivante() {
   const [stage, setStage] = useState(0)
-  // Separate ref arrays so display:none doesn't confuse IntersectionObserver
   const desktopRefs = useRef([])
   const mobileRefs  = useRef([])
+
+  function handleDotClick(i) {
+    const isMobile = window.innerWidth < 1024
+    const ref = isMobile ? mobileRefs.current[i] : desktopRefs.current[i]
+    ref?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
 
   useEffect(() => {
     const observe = (refs) => refs.map((el, i) => {
@@ -259,7 +265,7 @@ export default function MaisonVivante() {
       <div className="hidden lg:flex max-w-6xl mx-auto px-4 sm:px-6 pb-24">
         <div className="w-[46%] pr-14 self-start sticky top-16">
           <HouseIllustration stageIndex={stage} />
-          <div className="mt-6"><StageDots current={stage} /></div>
+          <div className="mt-6"><StageDots current={stage} onDotClick={handleDotClick} /></div>
           <div key={`dlbl-${stage}`} className="count-flip-in text-center mt-4">
             <div
               className="font-heading font-black text-xs tracking-[0.2em] uppercase transition-colors duration-700"
@@ -292,7 +298,27 @@ export default function MaisonVivante() {
           <div className="w-[200px] mx-auto">
             <HouseIllustration stageIndex={stage} />
           </div>
-          <div className="mt-3"><StageDots current={stage} /></div>
+          <div className="mt-3"><StageDots current={stage} onDotClick={handleDotClick} /></div>
+          <div className="flex justify-center gap-3 mt-3">
+            <button
+              onClick={() => mobileRefs.current[Math.max(0, stage - 1)]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              disabled={stage === 0}
+              className="w-9 h-9 rounded-xl bg-cream-dark border border-cream-deeper flex items-center justify-center text-noir/50 disabled:opacity-25 hover:bg-noir hover:text-white transition-all duration-200 active:scale-90"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </button>
+            <button
+              onClick={() => mobileRefs.current[Math.min(stages.length - 1, stage + 1)]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
+              disabled={stage === stages.length - 1}
+              className="w-9 h-9 rounded-xl bg-brand-orange flex items-center justify-center text-white disabled:opacity-25 hover:bg-brand-orange-dark transition-all duration-200 active:scale-90 shadow-orange"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
+          </div>
           <div key={`mlbl-${stage}`} className="count-flip-in text-center mt-2">
             <div
               className="font-heading font-black text-[10px] tracking-[0.18em] uppercase"
