@@ -112,7 +112,7 @@ export default function VictorPage() {
                   </span>
                 </h1>
                 <p className="font-body text-lg sm:text-xl text-noir/65 leading-relaxed mb-5">
-                  Étudiant en <strong className="text-noir/85 font-semibold">LEA — Langues Étrangères Appliquées</strong>, j'ai grandi autour du Ventoux et j'ai toujours été passionné par la vente, la gestion et les relations humaines. J'ai lancé Le Lokal Ventoux pour faire quelque chose de{' '}
+                  Étudiant en <strong className="text-noir/85 font-semibold">LEA — Langues Étrangères Appliquées</strong> : anglais, espagnol, mais aussi <strong className="text-noir/85 font-semibold">marketing et économie</strong>. J'ai grandi autour du Ventoux et j'ai toujours été passionné par la vente, la gestion et les relations humaines. J'ai lancé Le Lokal Ventoux pour faire quelque chose de{' '}
                   <strong className="text-noir/85 font-semibold">concret, ici, sur ce territoire que je connais depuis l'enfance.</strong>
                 </p>
                 <p className="font-body text-base text-noir/50 leading-relaxed">
