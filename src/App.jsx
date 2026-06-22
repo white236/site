@@ -80,7 +80,7 @@ export default function App() {
                   Derrière tout ça, il y a <span className="text-brand-orange">Victor.</span>
                 </p>
                 <p className="font-body text-noir/50 text-sm leading-relaxed mb-3">
-                  Étudiant en économie, local du Ventoux, disponible 7j/7.
+                  Étudiant en LEA, anglais & espagnol, local du Ventoux.
                 </p>
                 <button
                   onClick={() => { window.location.hash = '#victor' }}

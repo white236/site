@@ -41,9 +41,9 @@ function VictorPhoto() {
 
 const pillars = [
   {
-    icon: '🎓',
-    title: 'Étudiant en économie',
-    desc: "Je comprends les enjeux financiers derrière votre logement — rentabilité, taux d'occupation, stratégie tarifaire selon les saisons.",
+    icon: '🌍',
+    title: 'Anglais & espagnol',
+    desc: "Je communique directement avec vos voyageurs étrangers dans leur langue. Autour du Ventoux, une grande partie des touristes viennent du Royaume-Uni, d'Espagne ou des Pays-Bas.",
   },
   {
     icon: '🏔️',
@@ -51,9 +51,9 @@ const pillars = [
     desc: "Je connais chaque village, chaque prestataire, chaque route du massif. Ce n'est pas une carte pour moi — c'est mon quotidien.",
   },
   {
-    icon: '🤝',
-    title: 'Passionné de commerce',
-    desc: "Annonce soignée, photos travaillées, accueil chaleureux des voyageurs : votre logement mérite d'être bien représenté.",
+    icon: '🎓',
+    title: 'Formation LEA',
+    desc: "Langues, marketing, droit, économie : ma formation couvre tous les angles. Je comprends les enjeux de votre logement — stratégie tarifaire, annonce qui convertit, rentabilité.",
   },
   {
     icon: '📞',
@@ -112,7 +112,7 @@ export default function VictorPage() {
                   </span>
                 </h1>
                 <p className="font-body text-lg sm:text-xl text-noir/65 leading-relaxed mb-5">
-                  Étudiant en <strong className="text-noir/85 font-semibold">licence d'économie</strong>, j'ai grandi autour du Ventoux et j'ai toujours été passionné par la vente, la gestion et les relations humaines. J'ai lancé Le Lokal Ventoux pour faire quelque chose de{' '}
+                  Étudiant en <strong className="text-noir/85 font-semibold">LEA — Langues Étrangères Appliquées</strong>, j'ai grandi autour du Ventoux et j'ai toujours été passionné par la vente, la gestion et les relations humaines. J'ai lancé Le Lokal Ventoux pour faire quelque chose de{' '}
                   <strong className="text-noir/85 font-semibold">concret, ici, sur ce territoire que je connais depuis l'enfance.</strong>
                 </p>
                 <p className="font-body text-base text-noir/50 leading-relaxed">
@@ -156,7 +156,10 @@ export default function VictorPage() {
             </blockquote>
             <div className="space-y-5 text-left">
               <p className="font-body text-white/65 text-base sm:text-lg leading-relaxed">
-                En faculté d'économie, j'ai compris très vite ce qui m'animait vraiment : analyser un marché, trouver la bonne stratégie de prix, convaincre et fidéliser. La location courte durée cochait toutes ces cases — et en plus, c'était autour du Ventoux, là où je vis.
+                En LEA, j'ai appris à analyser un marché, construire une stratégie et comprendre ce que veulent vraiment les clients — en français, en anglais, en espagnol. La location courte durée cochait toutes ces cases — et en plus, c'était autour du Ventoux, là où je vis.
+              </p>
+              <p className="font-body text-white/65 text-base sm:text-lg leading-relaxed">
+                Avant de lancer Le Lokal Ventoux, j'ai travaillé en restauration et en animation dans un camping. J'ai appris ce que signifie vraiment accueillir des gens : la réactivité, l'attention au détail et la capacité à gérer l'imprévu avec le sourire.
               </p>
               <p className="font-body text-white/65 text-base sm:text-lg leading-relaxed">
                 J'ai observé que de nombreux propriétaires avaient un logement à valoriser mais ni le temps ni l'envie de gérer les voyageurs, les ménages et les imprévus du quotidien. C'est là que j'ai vu ma place : être la personne fiable, locale et réactive qu'ils n'avaient pas encore trouvée.
