@@ -11,20 +11,14 @@ const steps = [
   {
     number: '02',
     icon: '🏠',
-    title: 'Je visite',
-    desc: "Je viens voir votre logement sur place pour mieux comprendre ce que je peux mettre en place pour vous.",
+    title: 'Je visite & prépare',
+    desc: "Je viens sur place, je prends les photos et je prépare l'annonce : description, tarifs adaptés au marché local.",
   },
   {
     number: '03',
-    icon: '🚀',
-    title: "On prépare l'annonce",
-    desc: "Photos, description, tarifs adaptés au marché : on prépare tout pour que votre logement soit attractif.",
-  },
-  {
-    number: '04',
     icon: '🔄',
-    title: 'Je gère les séjours',
-    desc: "Messages, arrivées, départs, ménage, suivi : je prends le relais sur le terrain. Vous recevez un résumé mensuel.",
+    title: 'Je gère, vous touchez',
+    desc: "Messages, arrivées, départs, ménage, suivi : je prends le relais. Vous recevez vos revenus et un résumé mensuel.",
   },
 ]
 

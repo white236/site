@@ -101,8 +101,25 @@ export default function Offer() {
           ))}
         </div>
 
+        {/* Guarantees strip */}
+        <div className="mt-8 grid grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-3 reveal">
+          {[
+            { icon: '📷', label: 'Photos avant/après' },
+            { icon: '✅', label: 'Ménages vérifiés' },
+            { icon: '📋', label: 'Prestataires déclarés' },
+            { icon: '💬', label: 'Contact direct 7j/7' },
+            { icon: '🔐', label: 'Votre compte Airbnb' },
+            { icon: '🚨', label: 'Signalement immédiat' },
+          ].map((g, i) => (
+            <div key={i} className="flex flex-col items-center text-center gap-1.5 bg-white rounded-2xl p-3 border border-cream-deeper shadow-card">
+              <span className="text-xl">{g.icon}</span>
+              <span className="font-heading font-bold text-noir text-[11px] leading-tight">{g.label}</span>
+            </div>
+          ))}
+        </div>
+
         {/* Commission highlight */}
-        <div className="mt-12 bg-brand-orange rounded-4xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 reveal">
+        <div className="mt-5 bg-brand-orange rounded-4xl p-8 sm:p-10 flex flex-col sm:flex-row items-center justify-between gap-6 reveal">
           <div>
             <p className="text-white/70 font-body text-sm mb-1 font-medium">Mon modèle, simple</p>
             <h3 className="font-heading font-black text-white text-2xl sm:text-3xl leading-tight">

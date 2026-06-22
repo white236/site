@@ -4,10 +4,8 @@ import Header from './components/Header'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Offer from './components/Offer'
-import NouvelleGeneration from './components/NouvelleGeneration'
 import HowItWorks from './components/HowItWorks'
 import MaisonVivante from './components/MaisonVivante'
-import Differentiators from './components/Differentiators'
 import CTAFinal from './components/CTAFinal'
 import ContactForm from './components/ContactForm'
 import Footer from './components/Footer'
@@ -61,10 +59,8 @@ export default function App() {
         <div id="ch-accueil"><Hero /></div>
         <div id="ch-defi"><Problem /></div>
         <div id="ch-offre"><Offer /></div>
-        <div id="ch-gen" className="hidden sm:block"><NouvelleGeneration /></div>
         <div id="ch-fonctionnement"><HowItWorks /></div>
         <MaisonVivante />
-        <div id="ch-garanties"><Differentiators /></div>
 
         {/* ── Victor teaser ── */}
         <div className="py-8 sm:py-14 bg-white">
