@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import victorImg from './assets/image.jpg'
 import Header from './components/Header'
-import SectionNav from './components/SectionNav'
 import Hero from './components/Hero'
 import Problem from './components/Problem'
 import Offer from './components/Offer'
@@ -57,7 +56,6 @@ export default function App() {
   return (
     <div className="min-h-screen page-fade-in">
       <Header />
-      <SectionNav />
       <main className="pt-14 lg:pt-16">
         <div id="ch-accueil"><Hero /></div>
         <div id="ch-defi"><Problem /></div>
