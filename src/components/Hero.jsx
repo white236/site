@@ -10,7 +10,11 @@ const badges = [
 
 export default function Hero() {
   const mountainRef = useRef(null)
+  const blob1Ref = useRef(null)
+  const blob2Ref = useRef(null)
+  const blob3Ref = useRef(null)
 
+  // Scroll parallax — mountain
   useEffect(() => {
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
     const isMobile = window.innerWidth < 768
@@ -26,12 +30,51 @@ export default function Hero() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  // Mouse parallax — blobs drift at different depths
+  useEffect(() => {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    const isMobile = window.innerWidth < 768
+    if (prefersReduced || isMobile) return
+
+    let rafId
+    let tx = 0, ty = 0
+    let cx = 0, cy = 0
+
+    const onMouseMove = (e) => {
+      tx = e.clientX / window.innerWidth - 0.5
+      ty = e.clientY / window.innerHeight - 0.5
+    }
+
+    const tick = () => {
+      cx += (tx - cx) * 0.05
+      cy += (ty - cy) * 0.05
+      if (blob1Ref.current) blob1Ref.current.style.transform = `translate(${cx * -30}px, ${cy * -18}px)`
+      if (blob2Ref.current) blob2Ref.current.style.transform = `translate(${cx * 22}px, ${cy * 14}px)`
+      if (blob3Ref.current) blob3Ref.current.style.transform = `translate(${cx * 28}px, ${cy * 20}px)`
+      rafId = requestAnimationFrame(tick)
+    }
+
+    window.addEventListener('mousemove', onMouseMove, { passive: true })
+    rafId = requestAnimationFrame(tick)
+
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove)
+      cancelAnimationFrame(rafId)
+    }
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden bg-cream">
-      {/* Background blobs */}
-      <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-orange opacity-[0.08] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4 pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-olive opacity-[0.08] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-brand-jaune opacity-[0.12] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      {/* Background blobs — each in a wrapper div for mouse parallax */}
+      <div ref={blob1Ref} className="absolute top-0 right-0 pointer-events-none will-change-transform">
+        <div className="w-[600px] h-[600px] bg-brand-orange opacity-[0.08] rounded-full blur-3xl -translate-y-1/3 translate-x-1/4" />
+      </div>
+      <div ref={blob2Ref} className="absolute bottom-0 left-0 pointer-events-none will-change-transform">
+        <div className="w-[500px] h-[500px] bg-brand-olive opacity-[0.08] rounded-full blur-3xl translate-y-1/3 -translate-x-1/4" />
+      </div>
+      <div ref={blob3Ref} className="absolute top-1/2 left-1/2 pointer-events-none will-change-transform">
+        <div className="w-[400px] h-[400px] bg-brand-jaune opacity-[0.12] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+      </div>
 
 
 
