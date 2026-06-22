@@ -35,12 +35,6 @@ function VictorPhoto() {
         <span className="font-heading font-bold text-noir text-sm">Victor · Fondateur</span>
       </div>
 
-      {/* Floating accent dots */}
-      <div className="absolute top-10 -right-5 w-3 h-3 rounded-full bg-brand-orange/45 animate-float hidden sm:block" />
-      <div className="absolute top-28 -right-9 w-2 h-2 rounded-full bg-brand-olive/50 animate-float-delay hidden sm:block" />
-      <div className="absolute top-56 -right-4 w-1.5 h-1.5 rounded-full bg-brand-orange/30 animate-float-slow hidden sm:block" />
-      <div className="absolute bottom-20 -left-7 w-2.5 h-2.5 rounded-full bg-brand-orange/35 animate-float hidden sm:block" />
-      <div className="absolute bottom-36 -left-4 w-2 h-2 rounded-full bg-brand-olive/40 animate-float-delay hidden sm:block" />
     </div>
   )
 }

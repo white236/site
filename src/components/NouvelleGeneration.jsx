@@ -35,10 +35,6 @@ export default function NouvelleGeneration() {
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-orange opacity-[0.08] rounded-full blur-[70px] pointer-events-none -translate-x-1/4 translate-y-1/4" />
       <div className="absolute top-1/2 left-1/2 w-[300px] h-[300px] bg-brand-orange opacity-[0.05] rounded-full blur-[50px] pointer-events-none -translate-x-1/2 -translate-y-1/2" />
 
-      {/* Floating dots */}
-      <div className="absolute top-20 left-16 w-2 h-2 rounded-full bg-brand-orange/40 animate-float hidden sm:block" />
-      <div className="absolute top-36 left-32 w-1.5 h-1.5 rounded-full bg-brand-orange/25 animate-float-delay hidden sm:block" />
-      <div className="absolute bottom-24 right-20 w-2 h-2 rounded-full bg-brand-orange/35 animate-float-slow hidden sm:block" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
 

@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react'
 import maisonImg from '../assets/istockphoto-175970870-612x612.jpg'
-import FloatingParticles from './FloatingParticles'
 
 const badges = [
   { icon: '💰', text: '20 % seulement quand le logement est loué' },
@@ -35,12 +34,6 @@ export default function Hero() {
       <div className="absolute top-1/2 left-1/2 w-[400px] h-[400px] bg-brand-jaune opacity-[0.12] rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
 
-      {/* Floating dots */}
-      <div className="absolute top-28 right-20 w-3 h-3 rounded-full bg-brand-orange opacity-50 animate-float hidden lg:block" />
-      <div className="absolute top-44 right-40 w-2 h-2 rounded-full bg-brand-orange opacity-30 animate-float-delay hidden lg:block" />
-      <div className="absolute top-64 right-16 w-1.5 h-1.5 rounded-full bg-brand-olive opacity-40 animate-float-slow hidden lg:block" />
-      <div className="absolute bottom-36 left-24 w-2.5 h-2.5 rounded-full bg-brand-orange opacity-35 animate-float hidden lg:block" />
-      <div className="absolute bottom-52 left-12 w-2 h-2 rounded-full bg-brand-olive opacity-30 animate-float-delay hidden lg:block" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 w-full py-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -124,7 +117,6 @@ export default function Hero() {
         </div>
       </div>
 
-      <FloatingParticles seed={0} />
 
       {/* Sun — peeking above Ventoux peak, rendered before mountain so it sits behind */}
       <div

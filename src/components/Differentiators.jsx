@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
-import FloatingParticles from './FloatingParticles'
 
 const cards = [
   {
@@ -49,12 +48,7 @@ export default function Differentiators() {
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/[0.05] rounded-full blur-3xl pointer-events-none translate-x-1/3 -translate-y-1/4" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-olive/[0.06] rounded-full blur-3xl pointer-events-none -translate-x-1/4 translate-y-1/4" />
 
-      {/* Dots décoratifs */}
-      <div className="absolute top-16 left-10 w-2 h-2 rounded-full bg-brand-orange/30 animate-float hidden sm:block" />
-      <div className="absolute top-32 left-20 w-1.5 h-1.5 rounded-full bg-brand-olive/40 animate-float-delay hidden sm:block" />
-      <div className="absolute bottom-20 right-12 w-2 h-2 rounded-full bg-brand-orange/25 animate-float-slow hidden sm:block" />
 
-      <FloatingParticles seed={6} />
 
       {/* Lavender sprigs */}
 

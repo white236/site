@@ -85,22 +85,6 @@ function HouseIllustration({ stageIndex }) {
         style={{ background: ac.tint ?? 'transparent' }}
       />
 
-      {/* Shimmer sweep — remounts on stage change → triggers animation */}
-      <div
-        key={`shimmer-${stageIndex}`}
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none overflow-hidden"
-      >
-        <div className="shimmer-el" />
-      </div>
-
-      {/* Camera scan line — only for stage 1 */}
-      {stageIndex === 1 && (
-        <div
-          className="scan-line absolute left-0 right-0 h-px pointer-events-none"
-          style={{ background: '#7D8CFF', boxShadow: '0 0 8px 3px rgba(125,140,255,0.65)' }}
-        />
-      )}
 
       {/* Ambient top-left glow — shifts color per stage */}
       <div

@@ -10,10 +10,6 @@ export default function CTAFinal() {
       <div className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/4" />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-noir/10 rounded-full blur-3xl pointer-events-none translate-y-1/2 -translate-x-1/4" />
 
-<div className="absolute top-10 left-14 w-2 h-2 bg-white/30 rounded-full animate-float hidden sm:block" />
-      <div className="absolute top-20 left-28 w-1.5 h-1.5 bg-white/20 rounded-full animate-float-delay hidden sm:block" />
-      <div className="absolute bottom-14 right-16 w-3 h-3 bg-white/15 rounded-full animate-float-slow hidden sm:block" />
-      <div className="absolute top-16 right-32 w-1.5 h-1.5 bg-white/25 rounded-full animate-float hidden sm:block" />
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
         <div className="reveal">

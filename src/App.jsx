@@ -1,8 +1,5 @@
 import { useEffect, useState } from 'react'
 import victorImg from './assets/image.jpg'
-import CursorGlow from './components/CursorGlow'
-import MistralParticles from './components/MistralParticles'
-import ScrollPetals from './components/ScrollPetals'
 import Header from './components/Header'
 import SectionNav from './components/SectionNav'
 import Hero from './components/Hero'
@@ -59,9 +56,6 @@ export default function App() {
 
   return (
     <div className="min-h-screen page-fade-in">
-      <MistralParticles />
-      <ScrollPetals />
-      <CursorGlow />
       <Header />
       <SectionNav />
       <main className="pt-14 lg:pt-16">

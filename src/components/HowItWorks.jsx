@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import { useRevealChildren } from '../hooks/useIntersection'
-import FloatingParticles from './FloatingParticles'
 
 const steps = [
   {
@@ -39,7 +38,6 @@ export default function HowItWorks() {
 
   return (
     <section id="fonctionnement" className="py-12 sm:py-28 bg-cream relative overflow-hidden" ref={containerRef}>
-      <FloatingParticles seed={18} />
       <div className="absolute top-0 left-0 w-96 h-96 bg-brand-orange/[0.05] rounded-full blur-3xl pointer-events-none -translate-x-1/3 -translate-y-1/3" />
       <div className="absolute bottom-0 right-0 w-72 h-72 bg-brand-olive/[0.06] rounded-full blur-3xl pointer-events-none translate-x-1/4 translate-y-1/4" />
 
