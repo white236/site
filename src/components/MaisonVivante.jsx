@@ -218,16 +218,30 @@ function StageCard({ s, i, active }) {
 export default function MaisonVivante() {
   const [stage, setStage] = useState(0)
   const desktopRefs = useRef([])
-  const mobileRefs  = useRef([])
+  const touchStartX = useRef(null)
 
   function handleDotClick(i) {
-    const isMobile = window.innerWidth < 1024
-    const ref = isMobile ? mobileRefs.current[i] : desktopRefs.current[i]
-    ref?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    if (window.innerWidth < 1024) {
+      setStage(i)
+    } else {
+      desktopRefs.current[i]?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
+  function handleTouchStart(e) {
+    touchStartX.current = e.touches[0].clientX
+  }
+
+  function handleTouchEnd(e) {
+    if (touchStartX.current === null) return
+    const dx = e.changedTouches[0].clientX - touchStartX.current
+    touchStartX.current = null
+    if (dx > 40) setStage(s => Math.max(0, s - 1))
+    else if (dx < -40) setStage(s => Math.min(stages.length - 1, s + 1))
   }
 
   useEffect(() => {
-    const observe = (refs) => refs.map((el, i) => {
+    const observers = desktopRefs.current.map((el, i) => {
       if (!el) return null
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setStage(i) },
@@ -236,9 +250,7 @@ export default function MaisonVivante() {
       obs.observe(el)
       return obs
     })
-    const d = observe(desktopRefs.current)
-    const m = observe(mobileRefs.current)
-    return () => { d.forEach(o => o?.disconnect()); m.forEach(o => o?.disconnect()) }
+    return () => observers.forEach(o => o?.disconnect())
   }, [])
 
   const ac = stageAccents[stage]
@@ -287,63 +299,50 @@ export default function MaisonVivante() {
         </div>
       </div>
 
-      {/* ── Mobile: sticky house panel + scrollable cards ── */}
-      <div className="lg:hidden">
-
-        {/* Sticky house — top-14 accounts for the fixed mobile header */}
-        <div
-          className="sticky top-14 z-20 bg-cream pb-4 pt-3"
-          style={{ boxShadow: '0 4px 20px rgba(44,58,32,0.08)' }}
-        >
-          <div className="w-[200px] mx-auto">
-            <HouseIllustration stageIndex={stage} />
+      {/* ── Mobile: swipe carousel ── */}
+      <div
+        className="lg:hidden select-none px-4 pb-10"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
+        <div className="mb-4">
+          <HouseIllustration stageIndex={stage} />
+        </div>
+        <div className="mb-3">
+          <StageDots current={stage} onDotClick={handleDotClick} />
+        </div>
+        <div className="flex justify-center gap-3 mb-3">
+          <button
+            onClick={() => setStage(s => Math.max(0, s - 1))}
+            disabled={stage === 0}
+            className="w-9 h-9 rounded-xl bg-cream-dark border border-cream-deeper flex items-center justify-center text-noir/50 disabled:opacity-25 hover:bg-noir hover:text-white transition-all duration-200 active:scale-90"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button
+            onClick={() => setStage(s => Math.min(stages.length - 1, s + 1))}
+            disabled={stage === stages.length - 1}
+            className="w-9 h-9 rounded-xl bg-brand-orange flex items-center justify-center text-white disabled:opacity-25 hover:bg-brand-orange-dark transition-all duration-200 active:scale-90 shadow-orange"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+        <div key={`mlbl-${stage}`} className="count-flip-in text-center mb-4">
+          <div
+            className="font-heading font-black text-[10px] tracking-[0.18em] uppercase"
+            style={{ color: `${ac.color}99` }}
+          >
+            Étape {stages[stage].number} sur 06
           </div>
-          <div className="mt-3"><StageDots current={stage} onDotClick={handleDotClick} /></div>
-          <div className="flex justify-center gap-3 mt-3">
-            <button
-              onClick={() => mobileRefs.current[Math.max(0, stage - 1)]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              disabled={stage === 0}
-              className="w-9 h-9 rounded-xl bg-cream-dark border border-cream-deeper flex items-center justify-center text-noir/50 disabled:opacity-25 hover:bg-noir hover:text-white transition-all duration-200 active:scale-90"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
-            <button
-              onClick={() => mobileRefs.current[Math.min(stages.length - 1, stage + 1)]?.scrollIntoView({ behavior: 'smooth', block: 'center' })}
-              disabled={stage === stages.length - 1}
-              className="w-9 h-9 rounded-xl bg-brand-orange flex items-center justify-center text-white disabled:opacity-25 hover:bg-brand-orange-dark transition-all duration-200 active:scale-90 shadow-orange"
-            >
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
-          </div>
-          <div key={`mlbl-${stage}`} className="count-flip-in text-center mt-2">
-            <div
-              className="font-heading font-black text-[10px] tracking-[0.18em] uppercase"
-              style={{ color: `${ac.color}99` }}
-            >
-              Étape {stages[stage].number} sur 06
-            </div>
-            <div className="font-heading font-bold text-noir text-sm mt-0.5">
-              {stages[stage].icon} {stages[stage].title}
-            </div>
+          <div className="font-heading font-bold text-noir text-sm mt-0.5">
+            {stages[stage].icon} {stages[stage].title}
           </div>
         </div>
-
-        {/* Stage cards */}
-        <div className="px-4 pb-16 pt-2">
-          {stages.map((s, i) => (
-            <div
-              key={i}
-              ref={el => { mobileRefs.current[i] = el }}
-              className="min-h-[28vh] flex items-center py-3"
-            >
-              <StageCard s={s} i={i} active={stage} />
-            </div>
-          ))}
-        </div>
+        <StageCard s={stages[stage]} i={stage} active={stage} />
       </div>
 
     </section>

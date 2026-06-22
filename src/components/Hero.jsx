@@ -101,7 +101,7 @@ export default function Hero() {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 mt-6 w-full max-w-sm">
+            <div className="hidden sm:grid grid-cols-2 gap-3 mt-6 w-full max-w-sm">
               {badges.map((b, i) => (
                 <div
                   key={i}
