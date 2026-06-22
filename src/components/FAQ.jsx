@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 const faqs = [
   {
     q: "Victor a 18 ans — est-ce sérieux ?",
@@ -26,26 +28,49 @@ const faqs = [
 ]
 
 export default function FAQ() {
+  const [open, setOpen] = useState(null)
+
   return (
-    <section className="py-12 sm:py-20 bg-cream-dark">
+    <section className="py-10 sm:py-20 bg-cream-dark">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
-        <div className="text-center mb-8">
+        <div className="text-center mb-6 sm:mb-8">
           <h2 className="font-heading font-black text-2xl sm:text-3xl text-noir">
             Questions fréquentes
           </h2>
         </div>
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+
+        {/* Desktop: grille horizontale */}
+        <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {faqs.map((faq, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl p-5 border border-cream-deeper shadow-card"
-            >
-              <p className="font-heading font-bold text-noir text-sm mb-2 leading-snug">
-                {faq.q}
-              </p>
-              <p className="font-body text-noir/55 text-sm leading-relaxed">
-                {faq.a}
-              </p>
+            <div key={i} className="bg-white rounded-2xl p-5 border border-cream-deeper shadow-card">
+              <p className="font-heading font-bold text-noir text-sm mb-2 leading-snug">{faq.q}</p>
+              <p className="font-body text-noir/55 text-sm leading-relaxed">{faq.a}</p>
+            </div>
+          ))}
+        </div>
+
+        {/* Mobile: accordéon compact */}
+        <div className="sm:hidden border border-cream-deeper rounded-2xl overflow-hidden bg-white divide-y divide-cream-deeper">
+          {faqs.map((faq, i) => (
+            <div key={i}>
+              <button
+                className="w-full text-left px-4 py-3.5 flex items-center justify-between gap-3"
+                onClick={() => setOpen(open === i ? null : i)}
+              >
+                <span className="font-heading font-bold text-noir text-sm leading-snug flex-1">{faq.q}</span>
+                <svg
+                  className="w-4 h-4 text-noir/30 flex-shrink-0 transition-transform duration-300"
+                  style={{ transform: open === i ? 'rotate(180deg)' : 'rotate(0deg)' }}
+                  fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+              {open === i && (
+                <div className="px-4 pb-3.5 bg-cream">
+                  <p className="font-body text-noir/60 text-sm leading-relaxed">{faq.a}</p>
+                </div>
+              )}
             </div>
           ))}
         </div>
