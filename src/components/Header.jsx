@@ -4,7 +4,6 @@ const links = [
   { id: 'ch-accueil',        label: 'Accueil' },
   { id: 'ch-offre',          label: 'Nos services' },
   { id: 'ch-fonctionnement', label: 'Fonctionnement' },
-  { id: 'ch-garanties',      label: 'Nos garanties' },
   { id: 'ch-contact',        label: 'Contact' },
 ]
 
