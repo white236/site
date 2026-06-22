@@ -20,9 +20,11 @@ const CITIES = [
   { name: 'Modène',                  note: 'Entre vigne et garrigue',   lat: 44.099, lng: 5.142 },
   { name: 'Saint-Didier',            note: 'Sud Ventoux',               lat: 44.027, lng: 5.096 },
   { name: "L'Isle-sur-la-Sorgue",    note: 'Venise provençale',         lat: 43.918, lng: 5.051 },
+  { name: 'Sault',                   note: 'Limite du territoire',      lat: 44.090, lng: 5.408 },
 ]
 
-const VENTOUX = [44.174, 5.279]
+const VENTOUX    = [44.174, 5.279]
+const CARPENTRAS = [44.056, 5.048]
 
 const cityIcon = L.divIcon({
   className: '',
@@ -72,8 +74,8 @@ export default function InteractiveMap() {
       `}</style>
 
       <MapContainer
-        center={[44.07, 5.14]}
-        zoom={11}
+        center={[44.06, 5.22]}
+        zoom={10}
         style={{ width: '100%', height: '100%' }}
         zoomControl={false}
         scrollWheelZoom={false}
@@ -89,7 +91,7 @@ export default function InteractiveMap() {
 
         {/* Service zone */}
         <Circle
-          center={VENTOUX}
+          center={CARPENTRAS}
           radius={30000}
           pathOptions={{
             color: '#7D8CFF',
