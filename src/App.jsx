@@ -14,6 +14,7 @@ import Footer from './components/Footer'
 import TerritoirePage from './components/TerritoirePage'
 import VictorPage from './components/VictorPage'
 import BottomNav from './components/BottomNav'
+import FAQ from './components/FAQ'
 
 export default function App() {
   const [page, setPage] = useState(() => {
@@ -145,6 +146,8 @@ export default function App() {
             </button>
           </div>
         </div>
+
+        <FAQ />
 
         <div id="ch-contact">
           <CTAFinal />

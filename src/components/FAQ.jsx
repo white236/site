@@ -1,0 +1,55 @@
+const faqs = [
+  {
+    q: "Victor a 18 ans — est-ce sérieux ?",
+    a: "Oui. J'ai travaillé en restauration et animé un camping — j'ai géré des clients, des imprévus et des exigences de qualité depuis mes 16 ans. L'âge ne définit pas le sérieux. Mes engagements, si.",
+  },
+  {
+    q: "Je garde mon compte Airbnb ?",
+    a: "Toujours. Votre compte reste le vôtre — vous voyez chaque réservation et chaque revenu en temps réel. Je ne gère que l'opérationnel.",
+  },
+  {
+    q: "Et si un voyageur casse quelque chose ?",
+    a: "Je signale immédiatement avec photos à l'appui. La garantie dommages Airbnb couvre jusqu'à 3 millions €. Vous êtes prévenus le jour même.",
+  },
+  {
+    q: "Combien je touche vraiment ?",
+    a: "80 % des revenus directement sur votre compte. Ma commission de 20 % n'est prélevée qu'une fois le séjour confirmé. Pas de réservation, pas de commission.",
+  },
+  {
+    q: "Je suis engagé sur combien de temps ?",
+    a: "Aucun engagement longue durée. On travaille ensemble tant que vous êtes satisfait. Un appel suffit pour commencer — ou pour arrêter.",
+  },
+  {
+    q: "Vous gérez quelles plateformes ?",
+    a: "Airbnb principalement, avec une gestion optimisée de l'annonce et des tarifs. D'autres plateformes selon votre logement — on en parle lors du premier appel.",
+  },
+]
+
+export default function FAQ() {
+  return (
+    <section className="py-12 sm:py-20 bg-cream-dark">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="text-center mb-8">
+          <h2 className="font-heading font-black text-2xl sm:text-3xl text-noir">
+            Questions fréquentes
+          </h2>
+        </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {faqs.map((faq, i) => (
+            <div
+              key={i}
+              className="bg-white rounded-2xl p-5 border border-cream-deeper shadow-card"
+            >
+              <p className="font-heading font-bold text-noir text-sm mb-2 leading-snug">
+                {faq.q}
+              </p>
+              <p className="font-body text-noir/55 text-sm leading-relaxed">
+                {faq.a}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
