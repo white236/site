@@ -87,8 +87,11 @@ export default function Problem() {
         </div>
 
         <div className="text-center mt-6 sm:mt-12 reveal">
-          <p className="text-white/38 font-body text-base mb-4">
-            Et si quelqu'un gérait ça pour vous ?
+          <p className="font-heading font-bold text-white text-lg sm:text-xl mb-4">
+            <span className="relative inline-block">
+              Et si quelqu'un gérait ça pour vous ?
+              <span className="absolute bottom-0.5 left-0 right-0 h-3 bg-brand-jaune/55 -skew-x-1 -z-0 rounded" />
+            </span>
           </p>
           <a href="#offre" className="btn-orange shadow-orange">
             Voir ce que je gère
