@@ -5,7 +5,7 @@ const problems = [
   {
     icon: '💬',
     title: 'Messages voyageurs',
-    desc: "Répondre vite, à toute heure, gérer questions et demandes spéciales. Tous les jours.",
+    desc: "Répondre vite, à toute heure, gérer les questions et demandes spéciales. Tous les jours.",
   },
   {
     icon: '🧹',

@@ -280,7 +280,7 @@ export default function MaisonVivante() {
         </div>
         <div className="w-[54%]">
           {stages.map((s, i) => (
-            <div key={i} ref={el => { desktopRefs.current[i] = el }} className="min-h-[82vh] flex items-center">
+            <div key={i} ref={el => { desktopRefs.current[i] = el }} className="min-h-[55vh] flex items-center">
               <StageCard s={s} i={i} active={stage} />
             </div>
           ))}
@@ -338,7 +338,7 @@ export default function MaisonVivante() {
             <div
               key={i}
               ref={el => { mobileRefs.current[i] = el }}
-              className="min-h-[45vh] flex items-center py-4"
+              className="min-h-[28vh] flex items-center py-3"
             >
               <StageCard s={s} i={i} active={stage} />
             </div>
