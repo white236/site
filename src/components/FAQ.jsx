@@ -31,7 +31,7 @@ export default function FAQ() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section className="py-10 sm:py-20 bg-cream-dark">
+    <section className="pt-10 sm:pt-20 pb-0 bg-cream-dark">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="text-center mb-6 sm:mb-8">
           <h2 className="font-heading font-black text-2xl sm:text-3xl text-noir">
@@ -74,6 +74,22 @@ export default function FAQ() {
             </div>
           ))}
         </div>
+      </div>
+
+      {/* Wave transition → CTAFinal (brand-orange #7D8CFF) */}
+      <div className="mt-10 sm:mt-16 -mb-px">
+        <svg
+          viewBox="0 0 1440 72"
+          preserveAspectRatio="none"
+          className="w-full h-10 sm:h-[72px] block"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M0 72V42 C240 6 480 72 720 42 C960 12 1200 68 1440 42 V72Z"
+            fill="#7D8CFF"
+          />
+        </svg>
       </div>
     </section>
   )
