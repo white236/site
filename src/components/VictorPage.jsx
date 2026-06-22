@@ -116,7 +116,7 @@ export default function VictorPage() {
                   <strong className="text-noir/85 font-semibold">concret, ici, sur ce territoire que je connais depuis l'enfance.</strong>
                 </p>
                 <p className="font-body text-base text-noir/50 leading-relaxed">
-                  Ce n'est pas une agence. C'est moi — disponible, honnête, et vraiment présent sur le terrain.
+                  Ce n'est pas une agence. C'est moi — disponible, honnête, et présent à 10 minutes de votre bien. Chaque logement que je gère, je le traite comme s'il était le mien.
                 </p>
 
                 <div className="flex flex-col sm:flex-row gap-3 mt-8">
